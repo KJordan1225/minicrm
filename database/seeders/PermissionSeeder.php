@@ -30,6 +30,8 @@ class PermissionSeeder extends Seeder
             PermissionEnum::DELETE_PROJECTS,
             PermissionEnum::DELETE_TASKS,
             PermissionEnum::DELETE_DOCUMENTS,
+
+            PermissionEnum::ADD_DOCUMENTS,
         ]);
     }
 }

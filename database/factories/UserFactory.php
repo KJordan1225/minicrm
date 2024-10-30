@@ -49,8 +49,6 @@ class UserFactory extends Factory
     public function user(): static
     {       
         return $this->afterCreating(function (User $user) {
-            // $role = Role::findByName('user','web');
-            // $user->assignRole($role);
             $user->assignRole(RoleEnum::USER);
         });
     }
