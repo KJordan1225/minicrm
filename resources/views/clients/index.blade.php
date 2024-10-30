@@ -9,16 +9,16 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <a href="{{ route('clients.create') }}" class="underline">Add new client</a>
+                    <a href="{{ route('clients.create') }}" class="underline">Add new committee</a>
 
                     <table class="min-w-full divide-y divide-gray-200 border mt-4">
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left">
-                                <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Company</span>
+                                <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Committee</span>
                             </th>
                             <th class="px-6 py-3 bg-gray-50 text-left">
-                                <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">VAT</span>
+                                <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Term</span>
                             </th>
                             <th class="px-6 py-3 bg-gray-50 text-left">
                                 <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Address</span>
