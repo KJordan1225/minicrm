@@ -21,7 +21,7 @@
                                 <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Term</span>
                             </th>
                             <th class="px-6 py-3 bg-gray-50 text-left">
-                                <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Address</span>
+                                <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Committee chair</span>
                             </th>
                             <th class="px-6 py-3 bg-gray-50 text-left">
                             </th>
@@ -38,7 +38,7 @@
                                     {{ $client->company_vat }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                    {{ $client->company_address }}
+                                    {{ $client->contact_name }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                     <a href="{{ route('clients.edit', $client) }}" class="underline">Edit</a>
