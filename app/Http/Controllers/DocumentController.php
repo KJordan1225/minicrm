@@ -45,7 +45,31 @@ class DocumentController extends Controller
      */
     public function store(StoreDocumentRequest $request): RedirectResponse
     {
-        Document::create($request->validated());
+        // Document::create($request->validated());
+    
+        $document = new Document;
+        
+        $document->title = $request->input('title');
+        $document->description = $request->input('description');
+        $document->user_id = $request->input('user_id');
+        $document->client_id = $request->input('client_id');
+        $document->project_id = $request->input('project_id');
+        $document->last_revised = $request->input('last_revised');
+
+        // $file = $request->file('filepathname');
+        // $name = $file->hashName();
+        // $filepath = $name;
+
+        // $document->filepathname = $filepath;
+
+        $document->filepathname = $request->input('filepathname');        
+        $document->display_name = $request->input('title');
+        $document->status = $request->input('status');
+        $document->title = $request->input('title');
+
+        // $file = Storage::disk('public')->putFileAs('/documents', $file, $filepath, 'public');
+
+        $document->save();    
 
         return redirect()->route('docs.index');
     }

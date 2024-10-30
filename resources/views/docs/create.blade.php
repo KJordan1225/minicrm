@@ -73,7 +73,7 @@
 						<!-- filepathname -->
                         <div>
                             <x-input-label for="filepathname" :value="__('Filepath')" />
-                            <x-text-input id="filepathname" class="block mt-1 w-full" type="file" name="filepathname" :value="old('filepathname')" required />
+                            <x-text-input id="filepathname" class="block mt-1 w-full" type="text" name="filepathname" :value="old('filepathname')" required />
                             <x-input-error :messages="$errors->get('filepathname')" class="mt-2" />
                         </div>
 						

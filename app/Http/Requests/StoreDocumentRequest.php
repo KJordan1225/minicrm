@@ -30,7 +30,7 @@ class StoreDocumentRequest extends FormRequest
             'client_id'   => ['required', Rule::exists('clients', 'id')],
             'project_id'  => ['required', Rule::exists('projects', 'id')],
             'last_revised' => ['required', 'date', 'after:yesterday'],
-			'filepathname' => ['required', 'file'],
+			'filepathname' => ['required'],
 			'display_name' => ['required'],
             'status'      => ['required', Rule::enum(DocumentStatus::class)],
         ];
