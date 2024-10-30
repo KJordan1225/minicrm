@@ -56,18 +56,18 @@ class DocumentController extends Controller
         $document->project_id = $request->input('project_id');
         $document->last_revised = $request->input('last_revised');
 
-        // $file = $request->file('filepathname');
-        // $name = $file->hashName();
-        // $filepath = $name;
+        $file = $request->file('filepathname');
+        $name = $file->hashName();
+        $filepath = $name;
 
-        // $document->filepathname = $filepath;
+        $document->filepathname = $filepath;
 
-        $document->filepathname = $request->input('filepathname');        
+        // $document->filepathname = $request->input('filepathname');        
         $document->display_name = $request->input('title');
         $document->status = $request->input('status');
         $document->title = $request->input('title');
 
-        // $file = Storage::disk('public')->putFileAs('/documents', $file, $filepath, 'public');
+        $file = Storage::disk('public')->putFileAs('/documents', $file, $filepath, 'public');
 
         $document->save();    
 

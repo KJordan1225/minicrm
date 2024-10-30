@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="overflow-hidden overflow-x-auto p-6 bg-white border-b border-gray-200">
 
-                    <form method="POST" action="{{ route('docs.store') }}">
+                    <form method="POST" action="{{ route('docs.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <!-- Title -->
@@ -73,7 +73,7 @@
 						<!-- filepathname -->
                         <div>
                             <x-input-label for="filepathname" :value="__('Filepath')" />
-                            <x-text-input id="filepathname" class="block mt-1 w-full" type="text" name="filepathname" :value="old('filepathname')" required />
+                            <x-text-input id="filepathname" class="block mt-1 w-full" type="file" name="filepathname" :value="old('filepathname')" required />
                             <x-input-error :messages="$errors->get('filepathname')" class="mt-2" />
                         </div>
 						

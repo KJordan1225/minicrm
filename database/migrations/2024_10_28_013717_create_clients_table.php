@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('contact_email')->unique();
             $table->string('contact_phone_number');
             $table->string('company_name');
-            $table->string('company_address');
-            $table->string('company_city');
-            $table->string('company_zip');
-            $table->integer('company_vat');
+            $table->string('company_address')->default('216 12th Street NW Roanoke VA');
+            $table->string('company_city')->default('Roanoke');
+            $table->string('company_zip')->default('24017');
+            $table->integer('company_vat')->default('NA');
             $table->timestamps();
             $table->softDeletes();
         });
