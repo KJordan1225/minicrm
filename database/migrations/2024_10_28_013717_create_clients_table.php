@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->string('contact_name');
-            $table->string('contact_email')->unique();
+            $table->string('contact_email');
             $table->string('contact_phone_number');
             $table->string('company_name');
             $table->string('company_address')->default('216 12th Street NW Roanoke VA');
             $table->string('company_city')->default('Roanoke');
             $table->string('company_zip')->default('24017');
-            $table->integer('company_vat')->default('NA');
+            $table->string('company_vat')->default('2024-2025');
             $table->timestamps();
             $table->softDeletes();
         });
