@@ -24,13 +24,13 @@ class StoreClientRequest extends FormRequest
     {
         return [
             'contact_name'         => ['required', 'string', 'max:255'],
-            'contact_email'        => ['required', 'string', 'email', 'max:255', Rule::unique('clients')],
+            'contact_email'        => ['required', 'string', 'email', 'max:255'],
             'contact_phone_number' => ['required'],
             'company_name'         => ['required'],
             'company_address'      => ['required'],
             'company_city'         => ['required', 'string'],
             'company_zip'          => ['required', 'integer'],
-            'company_vat'          => ['required', 'numeric'],
+            'company_vat'          => ['required', 'string'],
         ];
     }
 }

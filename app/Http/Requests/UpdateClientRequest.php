@@ -30,7 +30,7 @@ class UpdateClientRequest extends FormRequest
             'company_address'      => ['required'],
             'company_city'         => ['required', 'string'],
             'company_zip'          => ['required', 'integer'],
-            'company_vat'          => ['required', 'numeric'],
+            'company_vat'          => ['required', 'string'],
         ];
     }
 }

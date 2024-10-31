@@ -49,7 +49,7 @@
 
                         <!-- Assigned Client -->
                         <div class="mt-4">
-                            <x-input-label for="client_id" :value="__('Assigned client')" />
+                            <x-input-label for="client_id" :value="__('Assigned committee')" />
                             <select class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="client_id" id="client_id">
                                 @foreach($clients as $client)
                                     <option value="{{ $client->id }}"
