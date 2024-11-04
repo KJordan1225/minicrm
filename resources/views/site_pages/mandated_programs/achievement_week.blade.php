@@ -212,7 +212,18 @@
                     </h2>
                     <div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        Chapters facilitate and participate in activities that uplift their communities through the power of the vote.
+                        <p>
+                        The Omega Psi Phi Voter Registration, Education & Mobilization program is a mandated 
+                        initiative designed to increase civic engagement and political awareness within 
+                        communities. Through this program, Omega Psi Phi Fraternity, Inc. encourages voter 
+                        participation by organizing voter registration drives, providing educational 
+                        resources on political issues, and mobilizing voters for elections. The program 
+                        emphasizes the importance of informed voting, understanding civic responsibilities, 
+                        and being actively involved in the democratic process. This initiative reflects the 
+                        fraternity’s commitment to social action and advocacy, aiming to empower 
+                        communities, particularly those that are underrepresented, to make their voices 
+                        heard in elections.
+                        </p>
                     </div>
                     </div>
                 </div>
@@ -225,8 +236,17 @@
                     </h2>
                     <div id="flush-collapse7" class="accordion-collapse collapse" aria-labelledby="flush-heading7" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        A concerted effort at the international, district and local levels to retain active 
-                        brothers and return inactive brothers to full participatory status.                        
+                        <p>
+                        The Omega Psi Phi Reclamation and Retention program is a mandated initiative focused 
+                        on re-engaging inactive fraternity members and retaining active ones. Through this 
+                        program, Omega Psi Phi Fraternity, Inc. seeks to strengthen brotherhood and foster 
+                        lifelong commitment among its members. Reclamation efforts involve reaching out to 
+                        brothers who have become inactive, encouraging them to reconnect and participate in 
+                        fraternity activities. Retention strategies include organizing meaningful programs, 
+                        events, and mentorship opportunities that enhance the fraternity experience for 
+                        active members. This program is essential to maintaining unity, continuity, and 
+                        engagement within the organization.
+                        </p>                        
                     </div>
                     </div>
                 </div>
@@ -254,8 +274,16 @@
                     </h2>
                     <div id="flush-collapse9" class="accordion-collapse collapse" aria-labelledby="flush-heading9" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        March 12th of each year chapters conduct an appropriate service to recall the memory of those 
-                        members who have entered into Omega Chapter.
+                        <p>
+                        The Omega Psi Phi Memorial Service is a mandated program that honors the lives and 
+                        contributions of fraternity members who have passed away. Observed annually on 
+                        March 12th, this solemn service is held by all chapters of Omega Psi Phi Fraternity,
+                        Inc., as a tribute to deceased brothers. The ceremony includes reflections on 
+                        their legacy, expressions of brotherhood, and moments of reverence to acknowledge 
+                        the impact these men had on the fraternity and their communities. This tradition 
+                        reflects Omega Psi Phi’s commitment to remembering and celebrating the lives of its 
+                        members, emphasizing the fraternity’s values of loyalty and respect.
+                        </p>
                     </div>
                     </div>
                 </div>
@@ -268,9 +296,20 @@
                     </h2>
                     <div id="flush-collapse10" class="accordion-collapse collapse" aria-labelledby="flush-heading10" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        Chapters facilitate, participate and coordinate activities that promote good health 
-                        practices. Some of the programs are the Charles Drew Blood Drive and partnership 
+                        
+                    <p>
+                        The Omega Psi Phi Health Initiatives mandated program is a key component of Omega 
+                        Psi Phi Fraternity, Inc.’s commitment to promoting health and wellness in the 
+                        communities it serves. This program emphasizes health education, awareness, and 
+                        preventative measures to address critical health issues, especially those that 
+                        disproportionately affect African American communities. Key focus areas include 
+                        cardiovascular disease, diabetes, cancer, mental health, and other health 
+                        challenges. The program often involves partnerships with local health organizations and 
+                        agencies to provide screenings, educational workshops, and resources, aiming to 
+                        reduce health disparities and encourage healthier lifestyles among community 
+                        members.  Some of the programs are the Charles Drew Blood Drive and partnership 
                         with the American Diabetes Association.
+                        </p>
                     </div>
                     </div>
                 </div>
