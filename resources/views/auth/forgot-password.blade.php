@@ -1,6 +1,12 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+    <div class="text-sm text-gray-600 dark:text-gray-400 d-flex justify-content-center">
+        {{ __('Forgot your password?') }}
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-400 d-flex justify-content-center">
+        {{ __('No problem.') }}
+    </div>
+    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400 d-flex justify-content-center">
+        {{ __('Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
     </div>
 
     <!-- Session Status -->
@@ -9,17 +15,19 @@
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+        <!-- Username/Email Input -->
+        <div class="mb-3 d-flex justify-content-center">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control w-75" id="email" name="email" placeholder="Enter email" required>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+       
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
+        <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="btn btn-primary w-24 mt-3" 
+                style="background-color: #6D2077; color: #B7A57A;">
                 {{ __('Email Password Reset Link') }}
-            </x-primary-button>
+            </button>
         </div>
     </form>
 </x-guest-layout>
