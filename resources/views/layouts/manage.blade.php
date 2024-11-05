@@ -33,10 +33,19 @@
         <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                    
+                    @php
+                        $user = Auth::user();
+                        $isAdmin = Auth::user()->hasRole('admin');
+                    @endphp
+
                     <style>
                         body {
                             font-family: Arial, sans-serif;
+                        }
+
+                        .header-band {
+                            background-color: #B7A57A;
+                            height: 60px;
                         }
 
                         .navbar {
@@ -93,18 +102,40 @@
                     
                     </style>
 
+                    <div class="header-band">
+                        Test
+                    </div>
+
                     <div class="navbar">
                         <ul class="nav-menu">
                             <li><a href="{{ url('/') }}">
                                             Home</a></li>
-                            <li><a href="#about">About</a></li>
+                            @if(Auth::user()->hasRole('admin'))
+                            <li><a href="#about">Manage Pages</a></li>
+                            @endif
                             <li class="dropdown">
-                                <a href="javascript:void(0)" class="dropbtn">Programs</a>
+                                <a href="javascript:void(0)" class="dropbtn">Profile</a>
                                 <div class="dropdown-content">
-                                    <a href="{{ route('achievementWeek') }}">Mandated Progams</a>
+                                    <a href="#">Edit Profile</a>
+                                    <a href="#">Directory</a>
                                 </div>
-                            </li>                            
-                            <li><a href="#event">Events</a></li>
+                            </li> 
+                            @if(Auth::user()->hasRole('admin'))	
+                                <li class="dropdown">
+                                    <a href="javascript:void(0)" class="dropbtn">Resources</a>
+                                    <div class="dropdown-content">
+                                        <a href="#">Documents</a>
+                                        <a href="#">Manage Resources</a>
+                                    </div>
+                                </li>
+                            @else
+                                <li class="dropdown">
+                                    <a href="javascript:void(0)" class="dropbtn">Resources</a>
+                                    <div class="dropdown-content">
+                                        <a href="#">Documents</a>
+                                    </div>
+                                </li>
+                            @endif
                             <li><a href="#contact_us">Contact Us</a></li>
                         </ul>  
                         <ul class="nav-menu">                         
@@ -113,7 +144,7 @@
                                     @auth
                                     <div class="dropdown-content">
                                         <a href="{{ url('/dashboard') }}">
-                                            Dashboard
+                                            Administrative Panel
                                         </a>
                                         <!-- Authentication -->
                                         <form method="POST" action="{{ route('logout') }}">
@@ -139,6 +170,67 @@
                             </li>
                         </ul>
                     </div>
+
+
+                    <!-- Navigation Links -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                        @can(\App\Enums\PermissionEnum::MANAGE_USERS->value)
+                        <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
+                            {{ __('Users') }}
+                        </x-nav-link>
+                        @endcan
+                        <x-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">
+                            {{ __('Committee') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.*')">
+                            {{ __('Projects') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.*')">
+                            {{ __('Tasks') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('docs.index')" :active="request()->routeIs('docs.*')">
+                            {{ __('Documents') }}
+                        </x-nav-link>
+                    </div>
+                </div>
+
+                <!-- Settings Dropdown -->
+                <div class="hidden sm:flex sm:items-center sm:ms-6">
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                
+                                <div>{{ Auth::user()->first_name }}</div>
+
+                                <div class="ms-1">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('profile.edit')">
+                                {{ __('Profile') }}
+                            </x-dropdown-link>
+
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-dropdown-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
+                        </x-slot>
+                    </x-dropdown>
+                </div>
 
 
 
@@ -187,18 +279,16 @@
                         
                     <hr>
 
-                    <span style="font-size: 3rem; font-family: sans-serif; color: #6D2077" class="d-flex justify-content-center">Mandated Programs</span>
-
                         {{$slot}}
 
                     </main>
-
-                    <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                        GAMMA ALPHA v1.0.0
-                    </footer>
                 </div>
             </div>
         </div>
+
+        <footer class="py-16 text-center text-sm text-black dark:text-white/70">
+            GAMMA ALPHA v1.0.0
+        </footer>
        
         <!-- Bootstrap 5.0.2 JS Script  -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
