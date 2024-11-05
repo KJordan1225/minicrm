@@ -30,7 +30,7 @@
                 <!-- Password Input -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
 					<x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
                 
@@ -42,7 +42,7 @@
 						</a>
 					@endif
 
-					<button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
+					<button type="submit" class="btn btn-primary w-100 mt-3" style="background-color: #6D2077; color: #B7A57A;">Login</button>
 				</div>                
             </form>
         </div>
