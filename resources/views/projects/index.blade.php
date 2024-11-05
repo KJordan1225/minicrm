@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     <a href="{{ route('projects.create') }}" class="underline">Add new project</a>
                     
-                    <table class="min-w-full divide-y divide-gray-200 border mt-4">
+                    <table class="table">
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left">
@@ -52,7 +52,7 @@
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                     {{ $project->status }}
                                 </td>
-                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900 d-flex justify-content-end">
                                     <a href="{{ route('projects.edit', $project) }}" class="underline">Edit</a>
                                     @can(\App\Enums\PermissionEnum::DELETE_PROJECTS->value)
                                     |
@@ -62,7 +62,7 @@
                                           class="inline-block">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="text-red-500 underline">Delete</button>
+                                        <button type="submit" class="btn btn-link text-danger p-0">Delete</button>
                                     </form>
                                     @endcan
                                 </td>

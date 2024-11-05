@@ -12,8 +12,8 @@
                     
                     <a href="{{ route('docs.create') }}" class="underline">Add new document</a>
                 
-                <div class="p-6 text-gray-900">                   
-                    <table class="min-w-full divide-y divide-gray-200 border mt-4">
+                <div class="p-6 text-gray-900">     
+                    <table class="table">
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left">
@@ -40,7 +40,7 @@
                                     {{ $document->display_name }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                    {{ $document->client->company_name }}
+                                    {{ 'Temporary Placeholder' }}   
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                     {{ $document->last_revised }}
@@ -48,7 +48,7 @@
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                     {{ $document->status }}
                                 </td>
-                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">                                    
+                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900 d-flex justify-content-end">                                    
 									<a href="{{ '/storage/documents/'.$document->filepathname }}" class="underline">View</a>
                                     <a href="{{ route('docs.edit', $document->id) }}" class="underline">Edit</a>
                                     @can(\App\Enums\PermissionEnum::DELETE_DOCUMENTS->value)   
@@ -58,7 +58,7 @@
                                         class="inline-block">    
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="text-red-500 underline">Delete</button>
+                                        <button type="submit" class="btn btn-link text-danger p-0">Delete</button>
                                     </form>                                   
                                     @endcan
                                 </td>

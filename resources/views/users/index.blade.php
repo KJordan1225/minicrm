@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     <a href="{{ route('users.create') }}" class="underline">Add new user</a>
 
-                    <table class="min-w-full divide-y divide-gray-200 border mt-4">
+                    <table class="table">
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left">
@@ -40,7 +40,7 @@
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                     {{ $user->email }}
                                 </td>
-                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900 d-flex justify-content-end">
                                     <a href="{{ route('users.edit', $user) }}" class="underline">Edit</a>
                                     |
                                     <form method="POST"
@@ -49,7 +49,7 @@
                                           onsubmit="return confirm('Are you sure?')">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="text-red-500 underline">Delete</button>
+                                        <button type="submit" class="btn btn-link text-danger p-0">Delete</button>
                                     </form>
                                 </td>
                             </tr>

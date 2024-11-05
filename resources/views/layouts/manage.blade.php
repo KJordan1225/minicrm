@@ -206,7 +206,7 @@
                         <div class="image-container">
                             <img src="{{ asset('assets/images/founders-png.png') }}" alt="Founders Image">
                             <div class="overlay-text">
-                                <p style="font-size: 3.0rem;">First Line of Text</p>
+                                <p style="font-size: 3.0rem;">Gamma Alpha Chapter</p>
                                 <p>Second Line of Text</p>
                             </div>
                         </div> 
