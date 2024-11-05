@@ -53,9 +53,9 @@
 				<x-input-error :messages="$errors->get('email')" class="mt-2" />
 			</div>
 
-            <div>
+            <div class="d-flex justify-content-center">
                 <button type="submit" 
-                        class="btn btn-primary w-100 mt-3" 
+                        class="btn btn-primary w-50 mt-3" 
                         style="background-color: #6D2077; 
                             color: #B7A57A;">
                     Save
