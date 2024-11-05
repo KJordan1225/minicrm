@@ -60,5 +60,15 @@ class SitePagesController extends Controller
         $pageTitle = "Chapter Policies and Proceedures";
         $breadCrumbs = "Members/Display Policy Docs";
         return view('site_pages.ga_files.display-policy-doc', compact('pageTitle', 'breadCrumbs'));
-    }    
+    } 
+
+    public function manageResources()
+    {
+
+        $pageTitle = "Manage Resources";
+        $breadCrumbs = "Resources/Manage Resources";
+        return view('resources.manage', compact('pageTitle', 'breadCrumbs'));
+    }
+    
+    
 }

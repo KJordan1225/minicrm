@@ -125,7 +125,7 @@
                                     <a href="javascript:void(0)" class="dropbtn">Resources</a>
                                     <div class="dropdown-content">
                                         <a href="#">Documents</a>
-                                        <a href="#">Manage Resources</a>
+                                        <a href="{{ route('manageResources') }}">Manage Resources</a>
                                     </div>
                                 </li>
                             @else
@@ -171,75 +171,9 @@
                         </ul>
                     </div>
 
-
-                    <!-- Navigation Links -->
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
-                        </x-nav-link>
-                        @can(\App\Enums\PermissionEnum::MANAGE_USERS->value)
-                        <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
-                            {{ __('Users') }}
-                        </x-nav-link>
-                        @endcan
-                        <x-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">
-                            {{ __('Committee') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.*')">
-                            {{ __('Projects') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.*')">
-                            {{ __('Tasks') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('docs.index')" :active="request()->routeIs('docs.*')">
-                            {{ __('Documents') }}
-                        </x-nav-link>
-                    </div>
-                </div>
-
-                <!-- Settings Dropdown -->
-                <div class="hidden sm:flex sm:items-center sm:ms-6">
-                    <x-dropdown align="right" width="48">
-                        <x-slot name="trigger">
-                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                
-                                <div>{{ Auth::user()->first_name }}</div>
-
-                                <div class="ms-1">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                            </button>
-                        </x-slot>
-
-                        <x-slot name="content">
-                            <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
-                            </x-dropdown-link>
-
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </x-dropdown-link>
-                            </form>
-                        </x-slot>
-                    </x-dropdown>
-                </div>
-
-
-
-
-                <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
+                    <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
                         <div class="flex lg:justify-center lg:col-start-2">                           
-                        </div>                       
-
-                        
+                        </div> 
                     </header>
                     <main class="mt-6 flex justify-center items-center">
 
