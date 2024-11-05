@@ -116,7 +116,7 @@
                             <li class="dropdown">
                                 <a href="javascript:void(0)" class="dropbtn">Profile</a>
                                 <div class="dropdown-content">
-                                    <a href="#">Edit Profile</a>
+                                    <a href="{{ route('profile.edit') }}">Edit Profile</a>
                                     <a href="#">Directory</a>
                                 </div>
                             </li> 
