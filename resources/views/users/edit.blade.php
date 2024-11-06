@@ -1,9 +1,9 @@
 <x-app-layout>
-    <x-slot name="header">
+    <div class="py-5">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Edit User') }}
         </h2>
-    </x-slot>
+    </div>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -14,32 +14,32 @@
                         @method('PUT')
                         @csrf
 
-                        <!-- First Name -->
-                        <div>
-                            <x-input-label for="first_name" :value="__('First Name')" />
-                            <x-text-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name', $user->first_name)" required />
-                            <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
-                        </div>
+						<!-- FIRST NAME -->
+						<div class="mb-3">
+							<label for="first_name" class="form-label">First Name</label>
+							<input type="text" class="form-control" id="first_name" name="first_name">
+							<x-input-error :messages="$errors->get('first_name')" class="mt-2" />
+						</div>
+						
+						<!-- last NAME -->
+						<div class="mb-3">
+							<label for="last_name" class="form-label">Last Name</label>
+							<input type="text" class="form-control" id="last_name" name="last_name">
+							<x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+						</div>
+						
+						<!-- email address -->
+						<div class="mb-3">
+							<label for="email" class="form-label">Email</label>
+							<input type="email" class="form-control" id="email" name="email">
+							<x-input-error :messages="$errors->get('email')" class="mt-2" />
+						</div>
 
-                        <!-- Last Name -->
-                        <div class="mt-4">
-                            <x-input-label for="last_name" :value="__('Last Name')" />
-                            <x-text-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name', $user->last_name)" required />
-                            <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
-                        </div>
-
-                        <!-- Email Address -->
-                        <div class="mt-4">
-                            <x-input-label for="email" :value="__('Email')" />
-                            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $user->email)" required />
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                        </div>
-
-                        <x-primary-button class="mt-4">
-                            {{ __('Save') }}
-                        </x-primary-button>
+                        <!-- Submit Button -->
+						<div class="d-flex justify-content-center mt-4">
+							<button type="submit" class="btn btn-primary w-50 mt-3" style="background-color: #6D2077; color: #B7A57A;">Save</button>
+						</div>
                     </form>
-
                 </div>
             </div>
         </div>
