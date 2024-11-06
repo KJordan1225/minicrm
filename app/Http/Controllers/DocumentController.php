@@ -24,7 +24,7 @@ class DocumentController extends Controller
     public function index(): View
     {
         $documents = Document::with(['user', 'client', 'project'])->paginate(10);
-    
+            
         return view('docs.index', compact('documents'));        
     }
 

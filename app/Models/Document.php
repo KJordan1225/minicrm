@@ -28,8 +28,7 @@ class Document extends Model
 
     public function client(): BelongsTo
     {
-        // client = committee
-		return $this->belongsTo(Client::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function project(): BelongsTo

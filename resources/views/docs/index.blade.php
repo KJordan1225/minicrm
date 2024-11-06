@@ -40,7 +40,11 @@
                                     {{ $document->display_name }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                    {{ 'Temporary Placeholder' }}   
+                                @php
+                                    $msg = $document->client->company_name ?? 'Default Name';
+                                @endphp
+
+                                {{ $msg }}                                    
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                     {{ $document->last_revised }}
@@ -49,8 +53,8 @@
                                     {{ $document->status }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900 d-flex justify-content-end">                                    
-									<a href="{{ '/storage/documents/'.$document->filepathname }}" class="underline">View</a>
-                                    <a href="{{ route('docs.edit', $document->id) }}" class="underline">Edit</a>
+									<a href="{{ '/storage/documents/'.$document->filepathname }}" class="underline pe-2">View</a>
+                                    <a href="{{ route('docs.edit', $document->id) }}" class="underline pe-2">Edit</a>
                                     @can(\App\Enums\PermissionEnum::DELETE_DOCUMENTS->value)   
                                     <form action="{{ route('docs.destroy', $document) }}"
                                         method="POST"

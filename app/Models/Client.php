@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Client extends Model
 {
@@ -20,4 +21,9 @@ class Client extends Model
         'company_zip',
         'company_vat',
     ];
+
+    public function document(): HasMany
+    {
+        return $this->hasMany(Document::class);
+    }
 }
