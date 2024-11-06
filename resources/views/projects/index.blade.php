@@ -53,7 +53,7 @@
                                     {{ $project->status }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900 d-flex justify-content-end">
-                                    <a href="{{ route('projects.edit', $project) }}" class="underline">Edit</a>
+                                    <a href="{{ route('projects.edit', $project) }}" class="underline pe-2">Edit</a>
                                     @can(\App\Enums\PermissionEnum::DELETE_PROJECTS->value)
                                     |
                                     <form action="{{ route('projects.destroy', $project) }}"

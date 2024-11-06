@@ -41,7 +41,7 @@
                                     {{ $client->contact_name }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900 d-flex justify-content-end">
-                                    <a href="{{ route('clients.edit', $client) }}" class="underline">Edit</a>
+                                    <a href="{{ route('clients.edit', $client) }}" class="underline pe-2">Edit</a>
                                     @can(\App\Enums\PermissionEnum::DELETE_CLIENTS->value)
                                     |
                                     <form action="{{ route('clients.destroy', $client) }}"

@@ -53,7 +53,7 @@
                                     {{ $task->status }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900 d-flex justify-content-end">
-                                    <a href="{{ route('tasks.edit', $task) }}" class="underline">Edit</a>
+                                    <a href="{{ route('tasks.edit', $task) }}" class="underline pe-2">Edit</a>
                                     @can(\App\Enums\PermissionEnum::DELETE_TASKS->value)
                                     |
                                     <form action="{{ route('tasks.destroy', $task) }}"
