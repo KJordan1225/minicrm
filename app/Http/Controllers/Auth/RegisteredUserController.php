@@ -106,7 +106,7 @@ class RegisteredUserController extends Controller
 
             $regUser->image_path = $filepath;
 
-            $file = Storage::disk('public')->putFileAs('/documents', $file, $filepath, 'public');
+            $file = Storage::disk('public')->putFileAs('/images', $file, $filepath, 'public');
 
             $regUser->save();
 

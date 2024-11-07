@@ -24,6 +24,9 @@
                                 <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Email</span>
                             </th>
                             <th class="px-6 py-3 bg-gray-50 text-left">
+                                <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Image</span>
+                            </th>
+                            <th class="px-6 py-3 bg-gray-50 text-left">
                             </th>
                         </tr>
                         </thead>
@@ -39,6 +42,13 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                     {{ $user->email }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                    <!-- {{ $user->email }} -->
+                                    @php 
+                                        $image_url = asset('storage/images/'.$user->image_path)
+                                    @endphp
+                                    <img src="{{ $image_url }}" alt="test image" width="50" height="50" />
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900 d-flex justify-content-end">
                                     <a href="{{ route('users.edit', $user) }}" class="underline pe-2">Edit</a>
