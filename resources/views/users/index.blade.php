@@ -43,6 +43,8 @@
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900 d-flex justify-content-end">
                                     <a href="{{ route('users.edit', $user) }}" class="underline pe-2">Edit</a>
                                     |
+                                    <a href="{{ route('profile.edit', $user) }}" class="underline pe-2">Edit Profile</a>
+                                    |
                                     <form method="POST"
                                           class="inline-block"
                                           action="{{ route('users.destroy', $user) }}"
