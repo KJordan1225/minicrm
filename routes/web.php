@@ -8,7 +8,8 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SitePagesController;
 use App\Http\Controllers\DocumentController;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;  
+use App\Http\Controllers\PDFController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,7 +50,9 @@ Route::get('/mandated_programs/social_action', [App\Http\Controllers\SitePagesCo
 Route::get('/about_ga/founders', [App\Http\Controllers\SitePagesController::class, 'aboutgaFounders'])->name('aboutgaFounders');
 
 Route::get('/resources/manage', [SitePagesController::class, 'manageResources'])->name('manageResources');
+Route::get('testpdf', [SitePagesController::class, 'testPDF'])->name('manageResources');
 
 
+Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 
 require __DIR__.'/auth.php';

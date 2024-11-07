@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class SitePagesController extends Controller
 {
@@ -69,6 +70,21 @@ class SitePagesController extends Controller
         $breadCrumbs = "Resources/Manage Resources";
         return view('resources.manage', compact('pageTitle', 'breadCrumbs'));
     }
+
+    public function testPDF()
+    {
+        $users = User::orderBy('last_name', 'asc')->get();
+    
+        $data = [
+            'title' => 'Welcome to GAWebapp.com',
+            'date' => date('m/d/Y'),
+            'users' => $users
+        ]; 
+
+        $pageTitle = "Chapter Policies and Proceedures";
+        $breadCrumbs = "Members/Display Policy Docs";
+        return view('myPDF', compact('data'));
+    } 
     
     
 }

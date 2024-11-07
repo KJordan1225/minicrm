@@ -18,8 +18,9 @@ class PDFController extends Controller
         $users = User::orderBy('last_name', 'asc')->get();
     
         $data = [
-            'title' => 'Welcome to GAWebapp.com',
+            'title' => 'Gamma Alpha Chapter Directory',
             'date' => date('m/d/Y'),
+            'image' => public_path('storage/images/zbZaLhvhLTLztRSMBz5xFJY9GFvNvPyEkreZMrHB.jpg'),
             'users' => $users
         ]; 
               
