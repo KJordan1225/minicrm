@@ -100,14 +100,19 @@ class RegisteredUserController extends Controller
             $regUser->phone_type = $request->phone_type;
             // $regUser->image_path = $request->image_path;
 
+            $file = null;
             $file = $request->file('image_path');
-            $name = $file->hashName();
-            $filepath = $name;
 
-            $regUser->image_path = $filepath;
-
-            $file = Storage::disk('public')->putFileAs('/images', $file, $filepath, 'public');
-
+            if (!is_null($file))
+            {
+                $name = $file->hashName();
+                $filepath = $name;
+                $regUser->image_path = $filepath;
+                $file = Storage::disk('public')->putFileAs('/images', $file, $filepath, 'public');
+            } else {
+                $regUser->image_path = 'zbZaLhvhLTLztRSMBz5xFJY9GFvNvPyEkreZMrHB.jpg';
+            }
+                        
             $regUser->save();
 
         } else {
