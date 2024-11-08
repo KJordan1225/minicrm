@@ -22,6 +22,12 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class)
         ->middleware('can:' . PermissionEnum::MANAGE_USERS->value);
+    Route::get('users/profile-show', [UserController::class, 'profileCreate'])        
+        ->middleware('can:' . PermissionEnum::MANAGE_USERS->value)
+        ->name('user-profile-show');
+    Route::post('user-profile/storeProfile', [UserController::class, 'userStoreProfile'])
+        ->middleware('can:' . PermissionEnum::MANAGE_USERS->value)	
+        ->name('userStoreProfile');
     Route::resource('clients', ClientController::class);
     Route::resource('projects', ProjectController::class);
     Route::resource('tasks', TaskController::class);
