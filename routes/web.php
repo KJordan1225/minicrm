@@ -50,7 +50,7 @@ Route::get('/mandated_programs/social_action', [App\Http\Controllers\SitePagesCo
 Route::get('/about_ga/founders', [App\Http\Controllers\SitePagesController::class, 'aboutgaFounders'])->name('aboutgaFounders');
 
 Route::get('/resources/manage', [SitePagesController::class, 'manageResources'])->name('manageResources');
-Route::get('testpdf', [SitePagesController::class, 'testPDF'])->name('manageResources');
+Route::get('testpdf', [SitePagesController::class, 'testPDF'])->name('testpdf');
 
 
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
