@@ -28,6 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::post('user-profile/storeProfile', [UserController::class, 'userStoreProfile'])
         ->middleware('can:' . PermissionEnum::MANAGE_USERS->value)	
         ->name('userStoreProfile');
+    Route::get('user-profile/profileEdit', [UserController::class, 'userProfileEdit'])
+        ->middleware('can:' . PermissionEnum::MANAGE_USERS->value)	
+        ->name('userProfileEdit');
     Route::resource('clients', ClientController::class);
     Route::resource('projects', ProjectController::class);
     Route::resource('tasks', TaskController::class);

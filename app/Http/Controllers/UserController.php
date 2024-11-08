@@ -164,11 +164,24 @@ class UserController extends Controller
             dd('User not found');
         } 
 
-        event(new Registered($regUser));
+        // event(new Registered($regUser));
 
-        Auth::login($regUser);
+        // Auth::login($regUser);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect('/users');
+    }
+
+    /**
+     * Display the user's profile form.
+     */
+    public function userProfileEdit(Request $request): View
+    {        
+        
+        $url_id = ($_SERVER["QUERY_STRING"]);
+        $user = User::find($url_id);
+        return view('users.profileEdit', [
+            'user' => $user,
+        ]);
     }
 
 }
