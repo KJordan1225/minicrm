@@ -1,4 +1,29 @@
 <x-app-layout>
+
+<style>
+        /* Centering the login form */
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 8%;
+            padding: 2rem;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        .required:after {
+            content: "*";
+            color: red;
+        }
+    </style> 
+
+	<div class="container">
+    <div class="login-container bg-white"
+            style="margin-top: 3%; max-width: 500px;
+                    ">
+
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Create Task') }}
@@ -13,31 +38,34 @@
                     <form method="POST" action="{{ route('tasks.store') }}">
                         @csrf
 
-                        <!-- Title -->
-                        <div>
-                            <x-input-label for="title" :value="__('Title')" />
-                            <x-text-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required />
+                       <!-- Title -->
+                        <div class="mb-3">
+                            <label for="title" class="form-label required">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" required />
                             <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                            <div class="invalid-feedback">
+                                Please enter title
+                            </div>
                         </div>
 
                         <!-- Description -->
-                        <div class="mt-4">
-                            <x-input-label for="description" :value="__('Description')" />
-                            <textarea id="description" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="description" required>{{ old('description') }}</textarea>
-                            <x-input-error :messages="$errors->get('description')" class="mt-2" />
+                        <div class="mb-3">
+                            <label for="description" class="form-label required">Description</label>
+                            <textarea class="form-control" id="description" name="description" >{{ old('description') }}</textarea>
+                            <x-input-error :messages="$errors->get('description')" class="mt-2" />								
                         </div>
 
                         <!-- Deadline At -->
-                        <div class="mt-4">
-                            <x-input-label for="deadline_at" :value="__('Deadline')" />
-                            <x-text-input id="deadline_at" class="block mt-1 w-full" type="date" name="deadline_at" min="{{ today()->format('Y-m-d') }}" :value="old('deadline_at')" required />
-                            <x-input-error :messages="$errors->get('deadline_at')" class="mt-2" />
+                        <div class="mb-3">
+                            <label for="deadline_at" class="form-label required">Deadline At</label>
+                            <input type="date" class="form-control" id="deadline_at" name="deadline_at" min="{{ today()->format('Y-m-d') }}" required/> 
+                            <x-input-error :messages="$errors->get('deadline_at')" class="mt-2" />								
                         </div>
 
                         <!-- Assigned User -->
                         <div class="mt-4">
-                            <x-input-label for="user_id" :value="__('Assigned user')" />
-                            <select class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="user_id" id="user_id">
+                            <label for="user_id" class="form-label required">Assigned User</label>
+                            <select class="form-select" name="user_id" id="user_id">
                                 @foreach($users as $user)
                                     <option value="{{ $user->id }}"
                                         @selected(old('user_id') == $user->id)>{{ $user->first_name . ' ' . $user->last_name }}</option>
@@ -48,11 +76,10 @@
 
                         <!-- Assigned Committee -->
                         <div class="mt-4">
-                            <x-input-label for="client_id" :value="__('Assigned committee')" />
-                            <select class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="client_id" id="client_id">
+                            <label for="client_id" class="form-control required">Assigned Committee</label>
+                            <select class="form-select" name="client_id" id="client_id">
                                 @foreach($clients as $client)
-                                    <option value="{{ $client->id }}"
-                                        @selected(old('client_id') == $client->id)>{{ $client->company_name }}</option>
+                                    <option value="{{ $client->id }}">{{ $client->company_name }}</option>
                                 @endforeach
                             </select>
                             <x-input-error :messages="$errors->get('client_id')" class="mt-2" />
@@ -60,11 +87,10 @@
 
                         <!-- Assigned Project -->
                         <div class="mt-4">
-                            <x-input-label for="project_id" :value="__('Assigned project')" />
-                            <select class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="project_id" id="project_id">
+                            <label for="project_id" class="form-control required">Assigned Project</label>
+                            <select class="form-select" name="project_id" id="project_id">
                                 @foreach($projects as $project)
-                                    <option value="{{ $project->id }}"
-                                        @selected(old('project_id') == $project->id)>{{ $project->title }}</option>
+                                    <option value="{{ $project->id }}">{{ $project->title }}</option>
                                 @endforeach
                             </select>
                             <x-input-error :messages="$errors->get('project_id')" class="mt-2" />
@@ -72,8 +98,8 @@
 
                         <!-- Status -->
                         <div class="mt-4">
-                            <x-input-label for="status" :value="__('Status')" />
-                            <select class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="status" id="status">
+                            <label for="status" class="form-control required">Status</label>
+                            <select class="form-select" name="status" id="status">
                                 @foreach(\App\Enums\TaskStatus::cases() as $status)
                                     <option value="{{ $status->value }}"
                                         @selected(old('status') == $status->value)>{{ $status->value }}</option>
@@ -82,13 +108,22 @@
                             <x-input-error :messages="$errors->get('status')" class="mt-2" />
                         </div>
 
-                        <x-primary-button class="mt-4">
-                            {{ __('Save') }}
-                        </x-primary-button>
+                        <div class="d-flex items-center justify-content-center mt-4">
+                            <button type="submit" 
+                                    class="btn btn-primary w-50 mt-3" 
+                                    style="background-color: #6D2077; color: #B7A57A;">
+                                Save Task 
+                            </button>
+                        </div>
                     </form>
 
                 </div>
             </div>
         </div>
     </div>
+
+    </div>
+    </div>
+
+
 </x-app-layout>
