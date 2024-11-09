@@ -1,9 +1,33 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Edit Task') }}
-        </h2>
-    </x-slot>
+
+    <style>
+        /* Centering the login form */
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 8%;
+            padding: 2rem;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        .required:after {
+            content: "*";
+            color: red;
+        }
+    </style> 
+
+	<div class="container">
+    <div class="login-container bg-white"
+            style="margin-top: 3%; max-width: 500px;
+                    ">
+
+
+
+    <div class="d-flex items-center justify-content-center mb-3">
+        <h2>Edit Task</h2>
+    </div>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -91,5 +115,9 @@
                 </div>
             </div>
         </div>
+    </div>
+
+
+    </div>
     </div>
 </x-app-layout>
