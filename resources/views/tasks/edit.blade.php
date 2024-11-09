@@ -17,14 +17,14 @@
                         <!-- Title Input -->
 						<div class="mb-3">
 							<label for="title" class="form-label">Title</label>
-							<input type="text" class="form-control" id="title" name="title">
+							<input type="text" class="form-control" id="title" name="title" value="{{ old('title', $task->title) }}"/>
 							<x-input-error :messages="$errors->get('title')" class="mt-2" />
 						</div>                        
 						
 						<!-- Description -->
 						<div class="mb-3">
 							<label for="description" class="form-label">Description</label>
-							<textarea class="form-control" id="description" name="description"></textarea>
+							<textarea class="form-control" id="description" name="description">{{ old('description', $task->description) }}</textarea>
 							<x-input-error :messages="$errors->get('description')" class="mt-2" />
 						</div>                        
 						
