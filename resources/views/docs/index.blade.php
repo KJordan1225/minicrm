@@ -50,7 +50,7 @@
                                     {{ $document->last_revised }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                    {{ $document->status }}
+                                    {{ $document->last_revised }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900 d-flex justify-content-end">                                    
 									<a href="{{ '/storage/documents/'.$document->filepathname }}" class="underline pe-2">View</a>

@@ -32,7 +32,7 @@
                 <div class="overflow-hidden overflow-x-auto p-6 bg-white border-b border-gray-200">
 
                     <form method="POST" action="{{ route('docs.store') }}" enctype="multipart/form-data">
-                        @csrf
+                        @csrf                        
 
                         <!-- Title -->
                         <div class="mb-3">
@@ -97,6 +97,13 @@
                             <label for="filepathname">Filepath</label> 
                             <input id="filepathname" class="form-control" type="file" name="filepathname" required />
                             <x-input-error :messages="$errors->get('filepathname')" class="mt-2" />
+                        </div>
+
+                        <!-- display name -->
+                        <div class="mb-3">
+                            <label for="display_name" class="form-label">Display Name</label>
+                            <input type="text" class="form-control" id="display_name" name="display_name" />
+                            <x-input-error :messages="$errors->get('display_name')" class="mt-2" />
                         </div>
 
                         <!-- Status -->

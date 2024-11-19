@@ -14,6 +14,8 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreDocumentRequest;
 use App\Http\Requests\UpdateDocumentRequest;
+use Illuminate\Validation\Rule;
+use App\Enums\DocumentStatus;
 
 
 class DocumentController extends Controller
@@ -43,33 +45,32 @@ class DocumentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreDocumentRequest $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
-        // Document::create($request->validated());
-    
-        $document = new Document;
-        
-        $document->title = $request->input('title');
-        $document->description = $request->input('description');
-        $document->user_id = $request->input('user_id');
-        $document->client_id = $request->input('client_id');
-        $document->project_id = $request->input('project_id');
-        $document->last_revised = $request->input('last_revised');
+        $validatedData = $request->validate([               
+					
+            'title'       => ['required'],
+            'description' => ['required'],
+            'user_id'     => ['required', Rule::exists('users', 'id')],
+            'client_id'   => ['required', Rule::exists('clients', 'id')],
+            'project_id'  => ['required', Rule::exists('projects', 'id')],
+            'last_revised' => ['required', 'date', 'after:yesterday'],
+            'filepathname' => ['nullable', 'file', 'mimes:pdf', 'max:2048'],
+            // 'status'      => ['required', Rule::enum(DocumentStatus::class)],
+            'display_name' => ['nullable'],
 
-        $file = $request->file('filepathname');
+        ]);          
+
+        $file = $validatedData['filepathname'];
         $name = $file->hashName();
         $filepath = $name;
 
-        $document->filepathname = $filepath;
-
-        // $document->filepathname = $request->input('filepathname');        
-        $document->display_name = $request->input('title');
-        $document->status = $request->input('status');
-        $document->title = $request->input('title');
+        $myDocument = Document::create($validatedData);
 
         $file = Storage::disk('public')->putFileAs('/documents', $file, $filepath, 'public');
-
-        $document->save();    
+        
+        $myDocument->filepathname = $filepath;
+        $myDocument->save();
 
         return redirect()->route('docs.index');
     }
@@ -120,7 +121,7 @@ class DocumentController extends Controller
 
             $file = $request->file('filepathname');
             $name = $file->hashName();
-            $filepath = $name;
+            $filepath = $name;            
 
             $document->filepathname = $filepath;
             $document->display_name = $request->input('title');
