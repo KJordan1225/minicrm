@@ -20,7 +20,7 @@
 	<div class="container">
     <div class="login-container bg-white">
 
-    <div class="d-flex items-center justify-content-center mb-3">
+    <div class="d-flex items-center justify-content-center mb-3" id="top-users-create">
         <h2> 
             {{ __('Add New User') }}
         </h2>
@@ -92,4 +92,10 @@
 	
 	</div>
 	</div>
+
+    <script>
+        window.onload = function() {
+        document.getElementById('top-users-create').scrollIntoView({ behavior: 'smooth' });
+        };
+    </script>
 </x-app-layout>

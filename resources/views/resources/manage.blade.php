@@ -25,7 +25,7 @@
                 </h2>
             </header>
             @can(\App\Enums\PermissionEnum::MANAGE_USERS->value)
-            <div>
+            <div id="top_manage_pgs">
                 <a href="{{ route('users.index') }}">
                     Manage Users
                 </a>
@@ -54,4 +54,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    window.onload = function() {
+      document.getElementById('top_manage_pgs').scrollIntoView({ behavior: 'smooth' });
+    };
+</script>
 </x-app-layout>

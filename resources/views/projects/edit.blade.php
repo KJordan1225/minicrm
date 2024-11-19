@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="overflow-hidden overflow-x-auto p-6 bg-white border-b border-gray-200">
+                <div class="overflow-hidden overflow-x-auto p-6 bg-white border-b border-gray-200" id="top-projects-edit">
 
                     <form method="POST" action="{{ route('projects.update', $project) }}">
                         @csrf
@@ -80,4 +80,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        window.onload = function() {
+        document.getElementById('top-projects-edit').scrollIntoView({ behavior: 'smooth' });
+        };
+    </script>
 </x-app-layout>

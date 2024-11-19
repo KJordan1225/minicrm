@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     <a href="{{ route('users.create') }}" class="underline">Add new user</a>
 
-                    <table class="table">
+                    <table class="table" id="top-users-index">
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left">
@@ -76,4 +76,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        window.onload = function() {
+        document.getElementById('top-users-index').scrollIntoView({ behavior: 'smooth' });
+        };
+    </script>
 </x-app-layout>

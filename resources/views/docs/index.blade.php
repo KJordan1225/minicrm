@@ -13,7 +13,7 @@
                     <a href="{{ route('docs.create') }}" class="underline">Add new document</a>
                 
                 <div class="p-6 text-gray-900">     
-                    <table class="table">
+                    <table class="table" id="top-documents-table">
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left">
@@ -79,4 +79,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        window.onload = function() {
+        document.getElementById('top-documents-table').scrollIntoView({ behavior: 'smooth' });
+        };
+    </script>
 </x-app-layout>

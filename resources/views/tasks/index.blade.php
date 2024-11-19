@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     <a href="{{ route('tasks.create') }}" class="underline">Add new task</a>
 
-                    <table class="table">
+                    <table class="table" id="top-task-index">
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left">
@@ -78,4 +78,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        window.onload = function() {
+        document.getElementById('top-task-index').scrollIntoView({ behavior: 'smooth' });
+        };
+    </script>
 </x-app-layout>
