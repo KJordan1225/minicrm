@@ -196,7 +196,8 @@
 
                         </br></br>
 
-                        <div class="d-flex justify-content-center" style="color: #6D2077; font-size: 3rem; font-family: sans-serif;">
+                        <div class="d-flex justify-content-center" style="color: #6D2077; font-size: 3rem; font-family: sans-serif;"
+                            id="top-welcome-pg">
                             FRIENDSHIP IS ESSENTIAL TO THE SOUL
                         </div>
                         <div class="d-flex justify-content-center mx-5" style="color: #000;">
@@ -275,6 +276,13 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            window.onload = function() {
+            document.getElementById('top-welcome-pg').scrollIntoView({ behavior: 'smooth' });
+            };
+        </script>
+        
        <!-- Bootstrap 5.0.2 JS Script  -->
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
        

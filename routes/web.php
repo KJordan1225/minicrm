@@ -20,16 +20,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('users', UserController::class)
-        ->middleware('can:' . PermissionEnum::MANAGE_USERS->value);
+    Route::resource('users', UserController::class);
     Route::get('users/profile-show', [UserController::class, 'profileCreate'])        
-        ->middleware('can:' . PermissionEnum::MANAGE_USERS->value)
         ->name('user-profile-show');
     Route::post('user-profile/storeProfile', [UserController::class, 'userStoreProfile'])
-        ->middleware('can:' . PermissionEnum::MANAGE_USERS->value)	
         ->name('userStoreProfile');
+    Route::post('user-profile/loggedInStoreProfile', [UserController::class, 'loggedInUserStoreProfile'])
+        ->name('loggedInUserStoreProfile');
     Route::get('user-profile/profileEdit', [UserController::class, 'userProfileEdit'])
-        ->middleware('can:' . PermissionEnum::MANAGE_USERS->value)	
         ->name('userProfileEdit');
     Route::resource('clients', ClientController::class);
     Route::resource('projects', ProjectController::class);
@@ -41,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/myprofile', [ProfileController::class, 'loggedInProfileEdit'])->name('loggedInProfile.edit');
 
 
 

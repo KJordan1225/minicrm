@@ -113,10 +113,13 @@
                             @if(Auth::user()->hasRole('admin'))
                             <li><a href="#about">Manage Pages</a></li>
                             @endif
+                            @php
+                                $auth_user = Auth::user();
+                            @endphp
                             <li class="dropdown">
                                 <a href="javascript:void(0)" class="dropbtn">Profile</a>
                                 <div class="dropdown-content">
-                                    <a href="{{ route('profile.edit') }}">Edit My Profile</a>
+                                    <a href="{{ route('loggedInProfile.edit', $auth_user) }}">Edit My Profile</a>
                                     <a href="#">Directory</a>
                                 </div>
                             </li> 

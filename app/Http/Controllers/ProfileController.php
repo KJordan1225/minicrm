@@ -19,6 +19,19 @@ class ProfileController extends Controller
         return view('profile.edit', [
             'user' => $request->user(),
         ]);
+    }    
+
+    /**
+     * Display the logged in user's profile form.
+     */
+    public function loggedInProfileEdit(Request $request): View
+    {
+        // Get logged in user
+        $auth_user = Auth::user();
+        
+        return view('profile.loggedinedit', [
+            'user' => $auth_user,
+        ]);
     }
 
     /**
