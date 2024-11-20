@@ -10,6 +10,7 @@ use App\Http\Controllers\SitePagesController;
 use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;  
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\ContactFormController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,9 +42,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/myprofile', [ProfileController::class, 'loggedInProfileEdit'])->name('loggedInProfile.edit');
 
-
-
 });
+
+// ROUTE TO CONTACT FORM
+Route::get('/contact', function () {
+    return view('contactus');
+})->name('contactus');
+
+Route::post('/contact', [ContactFormController::class, 'submit'])
+	->name('contact.submit');
 
 
 

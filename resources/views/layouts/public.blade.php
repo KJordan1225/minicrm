@@ -187,8 +187,6 @@
                         
                     <hr>
 
-                    <span style="font-size: 3rem; font-family: sans-serif; color: #6D2077" class="d-flex justify-content-center">Mandated Programs</span>
-
                         {{$slot}}
 
                     </main>

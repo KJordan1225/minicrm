@@ -1,6 +1,11 @@
 <x-public-layout>
 <div class="container">
     <div class="row justify-content-center">
+
+    <span style="font-size: 3rem; font-family: sans-serif; color: #6D2077" class="d-flex justify-content-center">
+        Mandated Programs
+    </span>
+
         <div class="col-md-10"> 
             <style>
                 .accordion-body{
