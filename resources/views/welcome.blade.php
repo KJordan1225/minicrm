@@ -220,7 +220,7 @@
 
 
                     <div class="container my-5">
-                        <div class="row">
+                        <div class="row align-items-center">
                             <!-- Left Column (Text) -->
                             <div class="col-md-6">
                                     <h2 style="text-align: center">BASILEUS MESSAGE</h2>                                 
@@ -252,7 +252,7 @@
                                     <p style="text-align: center;">
                                         We appreciate and look forward to your ongoing support.
                                     </p>
-                                    <p style="text-align: center;"
+                                    <p style="text-align: center;">
                                         In Friendship,
                                     </p>
                                     <p style="text-align: center;">

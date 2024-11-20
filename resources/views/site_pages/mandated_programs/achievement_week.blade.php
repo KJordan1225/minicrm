@@ -1,6 +1,6 @@
 <x-public-layout>
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="">
 
     <span style="font-size: 3rem; font-family: sans-serif; color: #6D2077" class="d-flex justify-content-center">
         Mandated Programs

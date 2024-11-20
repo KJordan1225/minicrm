@@ -29,7 +29,18 @@
             </style>
         @endif
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
+    <style>
+        .slot-container {
+            margin: 0;
+            padding: 0;
+            background-image: url('assets/images/omega-shield-1.png');
+            background-repeat: repeat;
+            background-size: auto; 
+            background-position-y: top;
+            background-position-x: left; 
+        }
+    </style>
+    <body class="font-sans antialiased dark:bg-black dark:text-white/50 slot-container">
         <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
@@ -105,7 +116,7 @@
                                 </div>
                             </li>                            
                             <li><a href="#event">Events</a></li>
-                            <li><a href="#contact_us">Contact Us</a></li>
+                            <li><a href="{{ route('contactus') }}">Contact Us</a></li>
                         </ul>  
                         <ul class="nav-menu">                         
                             <li class="dropdown">
@@ -149,7 +160,7 @@
 
                         
                     </header>
-                    <main class="mt-6 flex justify-center items-center">
+                    <main class="mt-6 flex justify-center items-center slot-container">
 
                     <style>
                         .image-container {
@@ -173,7 +184,7 @@
                             font-size: 1.5rem;
                             font-weight: bold;
                             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-                        }
+                        }                        
                     </style>
 
                         
@@ -184,14 +195,16 @@
                                 <p>Second Line of Text</p>
                             </div>
                         </div> 
-                        
-                    <hr>
 
-                        {{$slot}}
+                        <div class="slot-container">
+                            
+                            {{$slot}}
+                        
+                        </div>                        
 
                     </main>
 
-                    <footer class="py-16 text-center text-sm text-black dark:text-white/70">
+                    <footer class="py-16 text-center text-sm text-black dark:text-white/70" style="background-color: #ffffff;">
                         GAMMA ALPHA v1.0.0
                     </footer>
                 </div>

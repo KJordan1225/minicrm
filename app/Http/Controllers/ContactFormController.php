@@ -8,7 +8,21 @@ class ContactFormController extends Controller
 {
     public function submit(Request $request)
     {
-        // Here you will handle the form submission, like validating input and sending emails.
+
+        // Capture the data
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $message = $request->input('message');
+
+        $validatedData = $request->validate([
+            'name' => 'required|min:3|max:255',
+            'email' => 'required|email',
+            'message' => 'required|min:10',
+        ]);        
+
+        // Process the data (e.g., validation , sending email)
+        
         return back()->with('success', 'Thank you for your message!');
     }
 }
+
