@@ -21,7 +21,7 @@
     <table class="table table-bordered">	
         @foreach($users as $user)
         @php 
-            $image = public_path('storage/images/'.$user->image_path)
+            $image = public_path('storage/images/zbZaLhvhLTLztRSMBz5xFJY9GFvNvPyEkreZMrHB.jpg');
         @endphp
         <tr style="margin-bottom: 50px;" class="spaceUnder">
             <td>
