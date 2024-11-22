@@ -21,7 +21,11 @@
     <table class="table table-bordered">	
         @foreach($users as $user)
         @php 
-            $image = public_path('storage/images/zbZaLhvhLTLztRSMBz5xFJY9GFvNvPyEkreZMrHB.jpg');
+            if((is_null($user->image_path))||empty($user->image_path)){
+                $image = public_path('storage/images/zbZaLhvhLTLztRSMBz5xFJY9GFvNvPyEkreZMrHB.jpg'); 
+            } else {
+                $image = public_path('storage/images/'.$user->image_path);
+            }            
         @endphp
         <tr style="margin-bottom: 50px;" class="spaceUnder">
             <td>

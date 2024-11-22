@@ -142,12 +142,24 @@ class UserController extends Controller
             $regUser->zip_code = $request->zip_code;
             $regUser->phone_number = $request->phone_number;
             $regUser->phone_type = $request->phone_type;
-            $regUser->image_path = $request->image_path;
+            //$regUser->image_path = $request->image_path;
 
             $file = null;
             $file = $request->file('image_path');
 
-            if (empty($regUser->image_path)){
+            if ($regUser->image_path != 'zbZaLhvhLTLztRSMBz5xFJY9GFvNvPyEkreZMrHB.jpg')
+            {
+
+                if (!is_null($file))
+                {
+                    $name = $file->hashName();
+                    $filepath = $name;
+                    $regUser->image_path = $filepath;
+                    $file = Storage::disk('public')->putFileAs('/images', $file, $filepath, 'public');
+                }
+
+            } else {
+
                 if (!is_null($file))
                 {
                     $name = $file->hashName();
@@ -157,8 +169,8 @@ class UserController extends Controller
                 } else {
                     $regUser->image_path = 'zbZaLhvhLTLztRSMBz5xFJY9GFvNvPyEkreZMrHB.jpg';
                 }
-            }
 
+            }
             
                         
             $regUser->save();

@@ -21,7 +21,8 @@
     <div class="login-container bg-white"
             style="margin-top: 3%; max-width: 500px;
                     ">
-        <div class="d-flex items-center justify-content-center mb-3">
+        <div class="d-flex items-center justify-content-center mb-3"
+			id="top-profileedit">
             <h2>Edit User Profile</h2>
         </div>        
 
@@ -115,4 +116,10 @@
 
     </div>
 	</div>
+	
+	<script>
+        window.onload = function() {
+        document.getElementById('top-profileedit').scrollIntoView({ behavior: 'smooth' });
+        };
+    </script>
 </x-app-layout>
