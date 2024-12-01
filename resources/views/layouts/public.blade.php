@@ -16,10 +16,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 
-
-
-
-
         <title>GA TEST CRM</title>
 
         <!-- Fonts -->
@@ -32,9 +28,6 @@
         
          <!-- Bootstrap 5.0.2 CDN  -->
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
-        
 
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -129,7 +122,7 @@
                                     <a href="{{ route('achievementWeek') }}">Mandated Progams</a>
                                 </div>
                             </li>                            
-                            <li><a href="#event">Events</a></li>
+                            <li><a href="{{ url('/fullcalender') }}">Events</a></li>
                             <li><a href="{{ route('contactus') }}">Contact Us</a></li>
                         </ul>  
                         <ul class="nav-menu">                         
@@ -202,7 +195,7 @@
                     </style>
 
                         
-                        <div class="image-container">
+                        <div class="image-container" style="width: 100%;">
                             <img src="{{ asset('assets/images/founders-png.png') }}" alt="Founders Image">
                             <div class="overlay-text">
                                 <p style="font-size: 3.0rem;">First Line of Text</p>

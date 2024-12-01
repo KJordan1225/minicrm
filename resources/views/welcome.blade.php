@@ -112,7 +112,7 @@
                                     <a href="{{ route('achievementWeek') }}">Mandated Progams</a>
                                 </div>
                             </li>                            
-                            <li><a href="#event">Events</a></li>
+                            <li><a href="{{ url('/fullcalender') }}">Events</a></li>
                             <li><a href="{{ route('contactus') }}">Contact Us</a></li>
                         </ul> 
                          

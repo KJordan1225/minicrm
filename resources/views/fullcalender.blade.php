@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>GA WEBAPP FULLCALENDAR</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    @vite(['resources/js/app.js'])
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
-
-</head>
-<body>
+<x-public-layout>
     
 <div class="container">    
     <div class="card mt-5">
-        <h3 class="card-header p-3">Laravel 11 GA FullCalendar</h3>
+        <h3 class="card-header p-3">Gamma Alpha Event Calendar</h3>
         <div class="card-body">
             <div id='calendar'></div>
         </div>
@@ -503,5 +486,4 @@ $(document).ready(function () {
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   
-</body>
-</html>
+</x-public-layout>
