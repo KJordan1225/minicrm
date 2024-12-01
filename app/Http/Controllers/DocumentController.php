@@ -55,7 +55,7 @@ class DocumentController extends Controller
             'client_id'   => ['required', Rule::exists('clients', 'id')],
             'project_id'  => ['required', Rule::exists('projects', 'id')],
             'last_revised' => ['required', 'date', 'after:yesterday'],
-            'filepathname' => ['nullable', 'file', 'mimes:pdf', 'max:2048'],
+            'filepathname' => ['nullable', 'file', 'mimes:pdf,docx,doc', 'max:2048'],
             // 'status'      => ['required', Rule::enum(DocumentStatus::class)],
             'display_name' => ['nullable'],
 
