@@ -11,6 +11,8 @@ use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;  
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\FullCalenderController;
+use App\Http\Controllers\EventDetailsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -69,5 +71,15 @@ Route::get('testpdf', [SitePagesController::class, 'testPDF'])->name('testpdf');
 
 
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+
+Route::controller(FullCalenderController::class)->group(function(){
+    Route::get('fullcalender', 'index');
+    Route::post('fullcalenderAjax', 'ajax');
+});
+
+Route::post('/showeventdetails', [EventDetailsController::class, 'showEventDetails'])->name('showEventDetails');
+Route::post('/editeventdetails', [EventDetailsController::class, 'editEventDetails'])->name('editEventDetails');
+Route::post('/updateeventdetails', [EventDetailsController::class, 'updateEventDetails'])->name('updateEventDetails');
+
 
 require __DIR__.'/auth.php';
