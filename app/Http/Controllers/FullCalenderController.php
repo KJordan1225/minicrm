@@ -38,16 +38,10 @@ class FullCalenderController extends Controller
  
         switch ($request->type) {
            case 'add':
-           
-              $imageName = time().'.'.$request->image_path->extension();
-              $request->image_path->move(public_path('images'), $imageName);
-            
               $event = Event::create([
                   'title' => $request->title,
                   'start' => $request->start,
                   'end' => $request->end,
-                  'description' => $request->description,
-                  'image_path' => $imageName,
               ]);
  
               return response()->json($event);
