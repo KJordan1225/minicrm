@@ -108,8 +108,17 @@
                         .dropdown:hover .dropdown-content {
                             display: block;
                         }
+
+                        .header-band {
+                            background-color: #B7A57A;
+                            height: 60px;
+                        }
                     
                     </style>
+
+                    <div class="header-band">
+                        Public layout
+                    </div>
 
                     <div class="navbar">
                         <ul class="nav-menu">
