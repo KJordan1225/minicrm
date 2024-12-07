@@ -39,7 +39,10 @@
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+
+
 		<!-- Favicons
 		================================================== -->
 		<link rel="shortcut icon" href="{{ asset('assets/custom/images2/favicon-32x32.png') }}">
@@ -70,7 +73,7 @@
 		</script>
 		<header class="blockHeader wb-header logo_left " fixed="true">
 			<div class="container boxWidget">
-				<div class="logoWidget logo logoTextSettingClass">
+				<!-- <div class="logoWidget logo logoTextSettingClass">
 					<a href="#" title="">
 						<span id="logoTextWrap" style="display:block;">
 							<span class="websiteLogoName" style="color:#4b006e;font-family: Petit Formal Script;font-size:24px;margin-top:5%">
@@ -81,7 +84,7 @@
 							</span>
 						</span>
 					</a>
-				</div>            
+				</div>             -->
 				<div class="navbar navbar-default navbar-static-top ">
 					<div class="navbar-header" id="5170628" compid="5170628" pageid="0" component-data="{}">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -265,7 +268,7 @@
 			</div>
 		</footer>
 
-
+        <script src="{{ asset('assets/custom/js2/manProgAcc.js') }}"></script>
         <script src="https://static.sitemantic.com/webbuilder/js/lightbox/src/js/lightbox.js"></script>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>

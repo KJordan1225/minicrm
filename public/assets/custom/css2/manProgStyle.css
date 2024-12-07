@@ -1,0 +1,44 @@
+.manprog-accordion{
+    max-width: 80rem;
+    width: 100%;
+    background: #FFF;    
+	margin-top: 25px;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.manprog-accordion .accordion-content{
+    margin:10px 0;
+    border-radius: 5px;
+    background-color: #CFB53B;
+    border-color: #bbffaa;
+    overflow: hidden;
+}
+
+.manprog-accordion-content.is-open{
+    padding-bottom: 10px;
+}
+.manprog-accordion-content header{
+    display:flex;
+    min-height: 50px;
+    padding: 0 15px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    transition:all 0.2s linear;
+}
+.manprog-accordion-content.is-open header{
+    min-height: 35px;
+}
+.manprog-accordion-content-title{
+    font-size: 1rem;
+    font-weight: 600;
+    color:#4B006E;
+}
+.manprog-accordion-content-description{
+    height:0;
+    font-size: 13px;
+    color:#4B006E;
+    font-weight: 400;
+    padding: 0 15px;
+}
