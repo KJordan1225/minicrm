@@ -73,7 +73,7 @@
 				<div class="logoWidget logo logoTextSettingClass">
 					<a href="#" title="">
 						<span id="logoTextWrap" style="display:block;">
-							<span class="websiteLogoName" style="color:#4b006e;font-family: Petit Formal Script;font-size:28px;margin-top:5%">
+							<span class="websiteLogoName" style="color:#4b006e;font-family: Petit Formal Script;font-size:24px;margin-top:5%">
 								Gamma Alpha Chapter
 							</span>
 							<span class="websiteLogoSlogan" style="color:#fff;font-family:Roboto;font-size:20px;margin-top:2.5%">
@@ -90,7 +90,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-					</div>            
+					</div>     
 											
 					<div class="navWidget navbar-collapse collapse">
 						<ul class="parent-nav-ul nav navbar-nav navbar-right cl-effect-6">
@@ -100,13 +100,13 @@
 								</a>
 							</li>
 							<li class="dropdown">
-								<a href="#" pageslug="about" linktype="Page" class="siteNavLink">
+								<a href="{{ url('/') }}" pageslug="about" linktype="Page" class="siteNavLink">
 									ABOUT
 								</a>
 							</li>
 							<li class="dropdown">
-								<a href="#" pageslug="programs" linktype="Page" class="siteNavLink">
-									PROGRAMS
+								<a href="{{ route('achievementWeek') }}" pageslug="programs" linktype="Page" class="siteNavLink" style="font-size: 12px">
+									MANDATED PROGRAMS
 								</a>
 							</li>
 							<li class="dropdown">
@@ -117,6 +117,11 @@
 							<li class="dropdown">
 								<a href="#" pageslug="contact" linktype="Page" class="siteNavLink">
 									CONTACT
+								</a>
+							</li>
+                            <li class="dropdown">
+								<a href="{{ route('login') }}" pageslug="brosLogin" linktype="Page" class="siteNavLink">
+									BROTHERS LOGIN
 								</a>
 							</li>
 						</ul>
@@ -141,7 +146,7 @@
 				height:100%;
 			}
 		</style>
-		<section id="section-5170488" class="wb-heroHeader dark" style="background:#4b006e url(images/oppf-founders.png)  no-repeat center center;position: relative; overflow: hidden; background-size: cover;margin-top:0px">
+		<section id="section-5170488" class="wb-heroHeader dark" style="background:#4b006e url(assets/custom/images2/oppf-founders.png)  no-repeat center center;position: relative; overflow: hidden; background-size: cover;margin-top:0px">
 			<div class="wb-heroHeader-wrapper">
 				<div class="richTextWidget wb-heroHeader-content">
 					<h2 class="main-heading" style="margin-bottom: 10px; text-align: center;">
@@ -162,7 +167,7 @@
 			<div class="container boxWidget">
 				<div class="row custom-row ">
 					<div class="col-sm-6 ">  
-						<img src="images/temp-reggie.jpg" width="100%" height="100%F">
+						<img src="assets/custom/images2/temp-reggie.jpg" width="100%" height="100%">
 					</div>
 				<div class="col-sm-6 ">
 					<div class="item-box ">
@@ -189,7 +194,7 @@
 		<div class="container boxWidget">
 			<div class="row custom-row ">
 
-				<div class="col-sm-5 ">
+				<div class="col-sm-7 ">
 					<div class="richTextWidget para-normal ">
 						<h1 style="color: #4B006E">Social Outreach</h1> 
 						<p>
@@ -212,16 +217,21 @@
 						</ul>
 					</div> 
 				</div>
+
+                <style>
+                    #img-social-action-right img {
+                        width: 100%; 
+                        height: 100%; 
+                        object-fit: contain;
+                    }
+                </style>
 				
-				<div class="col-sm-7 ">
+				<div class="col-sm-5 ">
 					<div class="item-box ">
 						<div class=" ">
 							<div class=" ">
-								<div class="imageWidget  ">
-									<img class="lazyload sec-img" data-src="https://images.pexels.com/photos/6646947/pexels-photo-6646947.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=1200&amp;w=800">
-								</div>
-								<div class="imageWidget  ">
-									<img class="lazyload sec-img2" data-src="https://images.pexels.com/photos/6646975/pexels-photo-6646975.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=1200&amp;w=800">
+                                <div class="imageWidget  " id="img-social-action-right">
+									<img src="{{ asset('assets/custom/images2/image-placeholder.png') }}">
 								</div>
 							</div>
 						</div>
@@ -236,22 +246,27 @@
 		<div class="container boxWidget">
 			<div class="row custom-row ">
 
-				<div class="col-sm-8 ">
+            <style>
+                #img-social-action-left img {
+                    width: 100%; 
+                    height: 100%; 
+                    object-fit: contain;
+                }
+            </style>
+
+				<div class="col-sm-6 ">
 					<div class="item-box ">
 						<div class=" ">
 							<div class=" ">
-								<div class="imageWidget  ">
-									<img class="lazyload sec-img" data-src="https://images.pexels.com/photos/6646947/pexels-photo-6646947.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=1200&amp;w=800">
-								</div>
-								<div class="imageWidget  ">
-									<img class="lazyload sec-img2" data-src="https://images.pexels.com/photos/6646975/pexels-photo-6646975.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=1200&amp;w=800">
+								<div class="imageWidget  " id="img-social-action-left">
+									<img src="{{ asset('assets/custom/images2/image-placeholder.png') }}">
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-sm-4 ">
+				<div class="col-sm-6 ">
 					<div class="richTextWidget para-normal ">
 						<h1 style="color: #4B006E">Social Outreach</h1> 
 						<p>
