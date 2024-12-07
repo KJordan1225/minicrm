@@ -15,6 +15,17 @@ class SitePagesController extends Controller
         return view('site_pages.mandated_programs.achievement_week', compact('pageTitle', 'breadCrumbs'));
     }
 
+
+    public function programs()
+    {
+
+        $pageTitle = "Programs";
+        $breadCrumbs = "Programs";
+        return view('site_pages.mandated_programs.programs', compact('pageTitle', 'breadCrumbs'));
+    }
+
+    
+
     public function talentHunt()
     {
 

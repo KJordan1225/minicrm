@@ -58,7 +58,7 @@ Route::post('/contact', [ContactFormController::class, 'submit'])
 
 
 // ROUTES TO GUEST PAGES
-Route::get('/mandated_programs/achievement_week', [SitePagesController::class, 'achievementWeek'])->name('achievementWeek');
+Route::get('/programs', [SitePagesController::class, 'programs'])->name('programs');
 Route::get('/mandated_programs/talent_hunt', [App\Http\Controllers\SitePagesController::class, 'talentHunt'])->name('talentHunt');
 Route::get('/mandated_programs/stem_program', [App\Http\Controllers\SitePagesController::class, 'stemProgram'])->name('stemProgram');
 Route::get('/mandated_programs/fatherhood_mentoring', [App\Http\Controllers\SitePagesController::class, 'fatherhoodMentoring'])->name('fatherhoodMentoring');

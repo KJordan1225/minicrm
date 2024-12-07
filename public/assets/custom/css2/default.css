@@ -543,9 +543,14 @@ body [id*="accordion-"].accordion-style2 .panel-title a{
 }
 
 .icon-box:hover{
-	color: #fff !important;
-	background-color: #272727;
+	color: #CFB53B !important;
+	background-color: #4B006E;
+}
 
+
+.icon-box:hover button {
+    border-color: #CFB53B; 
+    color: #4B006E;
 }
 
 

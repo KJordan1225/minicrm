@@ -28,7 +28,10 @@
 		<!-- WEBSITE JS -->
 				
 		
-		<!-- PAGE JS -->
+		<!-- PAGE JS -->        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+        
 		<!-- CSS 
 		================================================== -->
 		<link rel="stylesheet" href="{{ asset('assets/custom/css2/combined.min.css?innove') }}" type='text/css'>         
@@ -40,6 +43,7 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
 
 
 
@@ -108,24 +112,39 @@
 								</a>
 							</li>
 							<li class="dropdown">
-								<a href="{{ route('achievementWeek') }}" pageslug="programs" linktype="Page" class="siteNavLink" style="font-size: 12px">
-									MANDATED PROGRAMS
+								<a href="{{ route('programs') }}" pageslug="programs" linktype="Page" class="siteNavLink" style="font-size: 12px">
+									PROGRAMS
 								</a>
 							</li>
 							<li class="dropdown">
-								<a href="#" pageslug="events" linktype="Page" class="siteNavLink">
+								<a href="{{ url('/fullcalender') }}" pageslug="events" linktype="Page" class="siteNavLink">
 									EVENTS
 								</a>
                             </li>
 							<li class="dropdown">
-								<a href="#" pageslug="contact" linktype="Page" class="siteNavLink">
-									CONTACT
+								<a href="{{ route('contactus') }}" pageslug="contact" linktype="Page" class="siteNavLink">
+									CONTACT US
 								</a>
 							</li>
                             <li class="dropdown">
+                            @guest
 								<a href="{{ route('login') }}" pageslug="brosLogin" linktype="Page" class="siteNavLink">
 									BROTHERS LOGIN
 								</a>
+								@endguest
+								
+								@auth
+								<form method="POST" action="{{ route('logout') }}">
+									@csrf
+									<button type="submit">Logout</button>
+									<!-- <a href="route('logout')"
+											onclick="event.preventDefault();
+														this.closest('form').submit();"
+											style="color: #fff;">
+										{{ __('Log Out') }}
+									</a> -->
+								</form>								
+								@endauth
 							</li>
 						</ul>
 					</div>
