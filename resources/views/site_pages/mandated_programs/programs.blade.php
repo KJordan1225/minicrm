@@ -13,7 +13,23 @@
 				</div> 
 			</div>
 		</div>
-            
+        <style>
+			.button-link {
+				display: inline-block;
+				padding: 10px 20px;
+				font-size: 14px;
+				color: black;
+				background-color: #d7d9d8;
+				text-decoration: none;
+				border: 1px solid black;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			.richTextWidget:hover .button-link {
+				border: 2px solid #CFB53B;
+			}
+		</style>
 		<div class="row ">
 			<div class="col-lg-4 col-sm-6 ">
 				<div class="icon-box item ">
@@ -30,7 +46,7 @@
 						individuals and the community.
 						</p>
                         <div>
-                            <button type="button" class="primary">Learn More</button>
+							<a href="{{ route('mandatedPrograms') }}" class="button-link">Learn More</a>
                         </div>
 					</div>
 				</div>
@@ -50,7 +66,7 @@
 						excellence and leadership development.
 						</p>
                         <div>
-                            <button type="button" class="primary">Learn More</button>
+						<a href="{{ route('mandatedPrograms') }}" class="button-link">Learn More</a>
                         </div>
 					</div> 
 				</div>
@@ -71,7 +87,7 @@
 						and leadership skills.
 						</p>
                         <div>
-                            <button type="button" class="primary">Learn More</button>
+						<a href="{{ route('mandatedPrograms') }}" class="button-link">Learn More</a>
                         </div>
 					</div> 
 				</div>
@@ -92,7 +108,7 @@
 						well-being within the community.
 						</p>
                         <div>
-                            <button type="button" class="primary">Learn More</button>
+						<a href="{{ route('mandatedPrograms') }}" class="button-link">Learn More</a>
                         </div>
 					</div>
 				</div>
@@ -113,7 +129,7 @@
 						underserved sectors of our community.
 						</p>
                         <div>
-                            <button type="button" class="primary">Learn More</button>
+						<a href="{{ route('mandatedPrograms') }}" class="button-link">Learn More</a>
                         </div>
 					</div>
 				</div>
@@ -132,7 +148,7 @@
 						among members and the broader community.
 						</p>
                         <div>
-                            <button type="button" class="primary">Learn More</button>
+						<a href="{{ route('mandatedPrograms') }}" class="button-link">Learn More</a>
                         </div>
 					</div>
 				</div>

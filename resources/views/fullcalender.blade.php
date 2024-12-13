@@ -78,7 +78,7 @@
             }
         </style>
             <div class="image-container">
-                <img src="{{ asset('images/1732844125.jpg') }}" alt="Image Description" id="mod2eventimg">
+                <img src="{{ ('images/1732844125.jpg') }}" alt="Image Description" id="mod2eventimg">
             </div>
             <div class="container mt-4">
             <!-- First Row -->

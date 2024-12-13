@@ -77,7 +77,7 @@
 		</script>
 		<header class="blockHeader wb-header logo_left " fixed="true">
 			<div class="container boxWidget">
-				<!-- <div class="logoWidget logo logoTextSettingClass">
+				<div class="logoWidget logo logoTextSettingClass">
 					<a href="#" title="">
 						<span id="logoTextWrap" style="display:block;">
 							<span class="websiteLogoName" style="color:#4b006e;font-family: Petit Formal Script;font-size:24px;margin-top:5%">
@@ -88,7 +88,7 @@
 							</span>
 						</span>
 					</a>
-				</div>             -->
+				</div>            
 				<div class="navbar navbar-default navbar-static-top ">
 					<div class="navbar-header" id="5170628" compid="5170628" pageid="0" component-data="{}">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

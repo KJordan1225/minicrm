@@ -1,237 +1,152 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>GA TEST CRM</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Favicon -->
-        <link rel="shortcut-icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon"/>
-
-        
-         <!-- Bootstrap 5.0.2 CDN  -->
-         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
-        
-
-        <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-            
-        @endif
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <!-- Bootstrap 5.2.3 CDN  -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link href="{{ asset('assets/admin-panel-css/styles.css') }}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-            <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-                <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                    @if (Auth::check())
-                        @php
-                            $user = Auth::user();
-                            $isAdmin = Auth::user()->hasRole('admin');
-                        @endphp
-                    @else
-                        @php 
-                            abort(403);
-                        @endphp
-                    @endif
-                    <style>
-                        body {
-                            font-family: Arial, sans-serif;
-                        }
-
-                        .header-band {
-                            background-color: #B7A57A;
-                            height: 60px;
-                        }
-
-                        .navbar {
-                            background-color: #6D2077;
-                        }
-
-                        .nav-menu {
-                            list-style-type: none;
-                            margin: 0;
-                            padding: 0;
-                            display: flex;
-                        }
-
-                        .nav-menu li {
-                            position: relative;
-                        }
-
-                        .nav-menu li a {
-                            display: block;
-                            color: #B7A57A;
-                            padding: 14px 20px;
-                            text-decoration: none;
-                        }
-
-                        .nav-menu li a:hover {
-                            background-color: #B7A57A;
-                            color: #6D2077;
-                        }
-
-                        .dropdown {
-                            cursor: pointer;
-                        }
-
-                        .dropdown-content {
-                            display: none;
-                            position: absolute;
-                            background-color: #6D2077;
-                            min-width: 180px;
-                            z-index: 1;
-                        }
-
-                        .dropdown-content a {
-                            padding: 12px 16px;
-                        }
-
-                        .dropdown-content a:hover {
-                            background-color: #B7A57A;
-                            color: #6D2077;
-                        }
-
-                        .dropdown:hover .dropdown-content {
-                            display: block;
-                        }
-                    
-                    </style>
-
-                    <div class="header-band">
-                        Test
-                    </div>
-
-                    <div class="navbar">
-                        <ul class="nav-menu">
-                            <li><a href="{{ url('/') }}">
-                                            Home</a></li>
-                            @if(Auth::user()->hasRole('admin'))
-                            <li><a href="#about">Manage Pages</a></li>
-                            @endif
-                            @php
-                                $auth_user = Auth::user();
-                            @endphp
-                            <li class="dropdown">
-                                <a href="javascript:void(0)" class="dropbtn">Profile</a>
-                                <div class="dropdown-content">
-                                    <a href="{{ route('loggedInProfile.edit', $auth_user) }}">Edit My Profile</a>
-                                    <a href="#">Directory</a>
-                                </div>
-                            </li> 
-                            @if(Auth::user()->hasRole('admin'))	
-                                <li class="dropdown">
-                                    <a href="javascript:void(0)" class="dropbtn">Resources</a>
-                                    <div class="dropdown-content">
-                                        <a href="#">Documents</a>
-                                        <a href="{{ route('manageResources') }}">Manage Resources</a>
-                                    </div>
-                                </li>
-                            @else
-                                <li class="dropdown">
-                                    <a href="javascript:void(0)" class="dropbtn">Resources</a>
-                                    <div class="dropdown-content">
-                                        <a href="#">Documents</a>
-                                    </div>
-                                </li>
-                            @endif
-                            <li><a href="#contact_us">Contact Us</a></li>
-                        </ul>  
-                        <ul class="nav-menu">                         
-                            <li class="dropdown">
-                                <a href="javascript:void(0)" class="dropbtn">Brothers Only</a>
-                                    @auth
-                                    <div class="dropdown-content">
-                                        <a href="{{ url('/dashboard') }}">
-                                            Administrative Panel
-                                        </a>
-                                        <!-- Authentication -->
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-
-                                            <x-dropdown-link :href="route('logout')"
-                                                    onclick="event.preventDefault();
-                                                                this.closest('form').submit();">
-                                                {{ __('Log Out') }}
-                                            </x-dropdown-link>
-                                        </form>
-                                    </div>
-                                    @endauth
-
-                                    @guest
-                                    <div class="dropdown-content">
-                                        <a href="{{ route('login') }}">Login</a>
-                                        @if (Route::has('register'))
-                                        <a href="{{ route('register') }}">Register</a>
-                                        @endif
-                                    </div>
-                                    @endguest
-                            </li>
-                        </ul>
-                    </div>
-
-                    <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                        <div class="flex lg:justify-center lg:col-start-2">                           
-                        </div> 
-                    </header>
-                    <main class="mt-6 flex justify-center items-center">
-
-                    <style>
-                        .image-container {
-                            position: relative;
-                            width: 100%;
-                            height: 410px;
-                            overflow: hidden;
-                        }
-                        .image-container img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: fill;
-                        }
-                        .overlay-text {
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            color: white;
-                            text-align: center;
-                            font-size: 1.5rem;
-                            font-weight: bold;
-                            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-                        }
-                    </style>
-
-                        
-                        <div class="image-container">
-                            <img src="{{ asset('assets/images/founders-png.png') }}" alt="Founders Image">
-                            <div class="overlay-text">
-                                <p style="font-size: 3.0rem;">Gamma Alpha Chapter</p>
-                                <p>Second Line of Text</p>
-                            </div>
-                        </div> 
-                        
-                    <hr>
-
-                        {{$slot}}
-
-                    </main>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+
+        <div id="layoutSidenav">
+
+
+            <!-- BEGIN: Sidebar Navigation -->
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Layouts
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="register.html">Register</a>
+                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="sb-sidenav-menu-heading">Addons</div>
+                            <a class="nav-link" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Charts
+                            </a>
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Tables
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Start Bootstrap
+                    </div>
+                </nav>
             </div>
+            <!-- END: Sidebar Navigation -->
+
+
+            <div id="layoutSidenav_content">
+			
+				{{$slot}}
+				
+				<footer class="py-4 bg-light mt-auto">
+					<div class="container-fluid px-4">
+						<div class="d-flex align-items-center justify-content-between small">
+							<div class="text-muted">Copyright &copy; Your Website 2023</div>
+							<div>
+								<a href="#">Privacy Policy</a>
+								&middot;
+								<a href="#">Terms &amp; Conditions</a>
+							</div>
+						</div>
+					</div>
+				</footer>
+				
+            </div>
+			
+			
+			
+			
+			
         </div>
-
-        <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-            GAMMA ALPHA v1.0.0
-        </footer>
-       
-        <!-- Bootstrap 5.0.2 JS Script  -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="{{ asset('assets/admin-panel-js/scripts.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="{{ asset('assets/admin-panel-assets/demo/chart-area-demo.js') }}"></script>
+        <script src="{{ asset('assets/admin-panel-assets/demo/chart-bar-demo.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="{{ asset('assets/admin-panel-js/datatables-simple-demo.js') }}"></script>
     </body>
 </html>
