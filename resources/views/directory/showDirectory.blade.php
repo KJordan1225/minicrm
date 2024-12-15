@@ -40,15 +40,22 @@
 		}
 
         .info-container {
-            width: 200px;
+            width: 400px;
         }
+
+		h1 {
+			text-align: center;
+			color: #CFB53B;
+		}
     </style> 
 
 	
-	<div class="container">
+	<div class="container">	
 	<div class="login-container bg-white"
         style="margin-top: 3%; max-width: 800px; margin-bottom: 5%">
-		
+		<button type="button">Print Directory</button>
+		<h1 class="title">Gamma Alpha</h1>
+		<h1 class="title">Chapter Directory</h1>
 		@foreach($users as $user)
 			<!-- Row -->
 			<div class="row">
@@ -65,7 +72,7 @@
 					<img src="{{ $image_url }}" alt="Placeholder Image">
 				</div>
 				<div class="info-container">
-					<p>{{ $user->first_name }} {{ $user->last_name }}</p>
+					<p><strong>{{ $user->first_name }} {{ $user->last_name }}</strong></p>
 					<p>{{ $user->address1 }}</p>
 					@php 
 						$addr2 = $user->address2 ?? null;

@@ -30,8 +30,16 @@ class UserFactory extends Factory
             'last_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => static::$password ??= Hash::make('secret'),
             'remember_token' => Str::random(10),
+            'address1' => fake()->streetAddress(),
+            'address2' => null,
+            'city' => fake()->city(),
+            'state' => fake()->state(),
+            'zip_code' => '24017',
+            'phone_number' => fake()->phoneNumber(),
+            'phone_type' => 'Mobile'
+
         ];
     }
 

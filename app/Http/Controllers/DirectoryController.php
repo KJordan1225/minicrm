@@ -12,7 +12,7 @@ class DirectoryController extends Controller
     {
         $users = User::orderBy('last_name', 'asc')
                         ->orderBy('first_name', 'asc')
-                        ->paginate(5);
+                        ->paginate(10);
 
         return view('directory.showDirectory', compact('users'));
     }
