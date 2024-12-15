@@ -1,3 +1,20 @@
+<style>
+	/* Style the button to look like a link */
+	.link-button {
+		background: none;
+		border: none;
+		text-decoration: none;
+		cursor: pointer;
+		font-family: inherit; /* Match the font to surrounding text */
+		font-size: inherit; 
+	}
+
+	/* Add hover effect */
+	.link-button:hover {
+		color: #CFB53B;
+		text-decoration: none;
+	}
+</style>
 <!-- BEGIN: Sidebar Navigation -->
 <div id="layoutSidenav_nav">
 	<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -8,13 +25,24 @@
 					<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
 					Home Page
 				</a>
-				<div class="sb-sidenav-menu-heading">Resources</div>
-				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+
+
+				<form method="POST" action="{{ route('logout') }}">
+					@csrf									
+					<button type="submit" class="link-button nav-link">
+					<div class="sb-nav-link-icon"><i class="fa-solid fa-lock"></i></div>
+						Logout
+					</button>
+				</form>
+
+
+				<div class="sb-sidenav-menu-heading">Admin Resources</div>
+				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
 					<div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
 					Resources
 					<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 				</a>
-				<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+				<div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
 						<a class="nav-link" href="{{ route('manageResources') }}">Manage ALL Resources</a>
 						<a class="nav-link" href="{{ route('clients.index') }}">Manage Committees</a>
@@ -24,7 +52,31 @@
 						<a class="nav-link" href="{{ route('users.index') }}">Manage Users</a>
 					</nav>
 				</div>
+
+
+
+
+				<div class="sb-sidenav-menu-heading">Member Resources</div>
+				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+					<div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
+					Profile/Directory
+					<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+				</a>
+				<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+					<nav class="sb-sidenav-menu-nested nav">
+						<a class="nav-link" href="{{ route('loggedInProfile.edit') }}">My Profile</a>
+						<a class="nav-link" href="{{ route('showDirectory') }}">Chapter Directory</a>
+					</nav>
+				</div>
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+					<div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+					Chapter Documents
+					<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+				</a>
+
+
+				
+				<!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
 					<div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
 					Pages
 					<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -63,7 +115,7 @@
 				<a class="nav-link" href="tables.html">
 					<div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
 					Tables
-				</a>
+				</a> -->
 			</div>
 		</div>
 		@php
