@@ -39,9 +39,15 @@
         <form method="POST" action="{{ route('loggedInUserStoreProfile', ['id'=>$id]) }}" enctype="multipart/form-data" >
             @csrf
 
-            <!-- user photo -->
+            <!-- user photo -->            
             @php 
-                $image_url = asset('storage/images/'.$user->image_path)
+                $image = $user->image_path ?? null;
+                if (empty($image)) {
+                    $image = 'hTrO1jlV6YJ5ZyNxdajGFBSjxTJJhQn9b8VwcpIu.jpg';
+                } else {
+                    $image = $user->image_path;
+                }
+                $image_url = asset('storage/images/'.$image)
             @endphp
             <div class="mb-3">
                 <img src="{{ $image_url }}" alt="test image" width="150" height="150" />

@@ -46,7 +46,13 @@
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                     <!-- {{ $user->email }} -->
                                     @php 
-                                        $image_url = asset('storage/images/'.$user->image_path)
+                                        $image = $user->image_path ?? null;
+                                        if (empty($image)) {
+                                            $image = 'hTrO1jlV6YJ5ZyNxdajGFBSjxTJJhQn9b8VwcpIu.jpg';
+                                        } else {
+                                            $image = $user->image_path;
+                                        }
+                                        $image_url = asset('storage/images/'.$image)
                                     @endphp
                                     <img src="{{ $image_url }}" alt="test image" width="50" height="50" />
                                 </td>
