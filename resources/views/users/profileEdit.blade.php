@@ -2,9 +2,10 @@
 	<style>
         /* Centering the login form */
         .login-container {
-            max-width: 400px;
-            margin: 0 auto;
+            max-width: 1000px;
             margin-top: 8%;
+            margin-bottom: 5%;
+            margin-left: 10%;
             padding: 2rem;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             border-radius: 8px;
@@ -19,7 +20,7 @@
 
     <div class="container">
     <div class="login-container bg-white"
-            style="margin-top: 3%; max-width: 500px;
+            style="margin-top: 3%; max-width: 800px;
                     ">
         <div class="d-flex items-center justify-content-center mb-3"
 			id="top-profileedit">
@@ -30,8 +31,28 @@
             $id = $user->id;
         @endphp
 
+        <div>
+            <h3>{{ $user->first_name}}  {{ $user->last_name}}</h3>
+        
+            <h3>{{ $user->email}}</h3>
+            </br>
+        </div>
+
         <form method="POST" action="{{ route('userStoreProfile', ['id'=>$id]) }}" enctype="multipart/form-data" >
             @csrf
+
+            <!-- user photo -->
+            @php 
+                $image_url = asset('storage/images/'.$user->image_path)
+            @endphp
+            <div class="mb-3">
+                <img src="{{ $image_url }}" alt="test image" width="150" height="150" />
+            </div>    
+            <div class="mb-3">
+                <label for="image_path" class="form-label">User Photo (optional)</label>
+                <input type="file" class="form-control" id="image_path" name="image_path" />
+                <x-input-error :messages="$errors->get('image_path')" class="mt-2" />
+            </div>
 
             <!-- user_id -->                            
             <input type="hidden" id="user_id" name="user_id" value="{{ $id }}" />                
@@ -90,19 +111,6 @@
                     <option value="Landline" @selected(($user->phone_type) == 'Landline')>Landline</option>
                 </select>
                 <x-input-error :messages="$errors->get('phone_type')" class="mt-2" />
-            </div>
-            
-            <!-- user photo -->
-            @php 
-                $image_url = asset('storage/images/'.$user->image_path)
-            @endphp
-            <div class="mb-3">
-                <img src="{{ $image_url }}" alt="test image" width="50" height="50" />
-            </div>    
-            <div class="mb-3">
-                <label for="image_path" class="form-label">User Photo (optional)</label>
-                <input type="file" class="form-control" id="image_path" name="image_path" />
-                <x-input-error :messages="$errors->get('image_path')" class="mt-2" />
             </div>
 
             <div class="d-flex items-center justify-content-center mt-4">

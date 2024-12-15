@@ -1,4 +1,26 @@
 <x-app-layout>
+
+<style>
+        /* Centering the login form */
+        .login-container {
+            width: 950px;
+			margin-bottom: 5%;
+            margin-left: 3%;
+            margin-top: 8%;
+            padding: 2rem;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        .required:after {
+            content: "*";
+            color: red;
+        }
+    </style>
+
+	<div class="login-container">
+
     <div class="py-5">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Edit User') }}
@@ -17,21 +39,21 @@
 						<!-- FIRST NAME -->
 						<div class="mb-3">
 							<label for="first_name" class="form-label">First Name</label>
-							<input type="text" class="form-control" id="first_name" name="first_name">
+							<input type="text" class="form-control" id="first_name" name="first_name" value="{{ $user->first_name }}">
 							<x-input-error :messages="$errors->get('first_name')" class="mt-2" />
 						</div>
 						
 						<!-- last NAME -->
 						<div class="mb-3">
 							<label for="last_name" class="form-label">Last Name</label>
-							<input type="text" class="form-control" id="last_name" name="last_name">
+							<input type="text" class="form-control" id="last_name" name="last_name" value="{{ $user->last_name }}">
 							<x-input-error :messages="$errors->get('last_name')" class="mt-2" />
 						</div>
 						
 						<!-- email address -->
 						<div class="mb-3">
 							<label for="email" class="form-label">Email</label>
-							<input type="email" class="form-control" id="email" name="email">
+							<input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
 							<x-input-error :messages="$errors->get('email')" class="mt-2" />
 						</div>
 
@@ -44,4 +66,6 @@
             </div>
         </div>
     </div>
+
+	</div>
 </x-app-layout>
