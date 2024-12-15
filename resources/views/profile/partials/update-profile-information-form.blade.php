@@ -3,7 +3,7 @@
 <style>
     /* Centering the login form */
     .login-container {
-        max-width: 600px;
+        max-width: 1000px;
         margin: 0 auto;
         padding: 2rem;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);

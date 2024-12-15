@@ -134,16 +134,76 @@
 								@endguest
 								
 								@auth
-								<form method="POST" action="{{ route('logout') }}">
-									@csrf
-									<button type="submit">Logout</button>
-									<!-- <a href="route('logout')"
-											onclick="event.preventDefault();
-														this.closest('form').submit();"
-											style="color: #fff;">
-										{{ __('Log Out') }}
-									</a> -->
-								</form>								
+								<style>
+								.navbar {
+									background-color: #CFB53B;
+									overflow: hidden;
+								}
+
+								/* Menu List */
+								.menu {
+									list-style: none;
+									margin: 0;
+									padding: 0;
+									display: flex;
+								}
+
+								.menu-item {
+									position: relative;
+								}
+
+								.menu-item a {
+									display: block;
+									padding: 15px 20px;
+									color: white;
+									text-decoration: none;
+								}
+
+								.menu-item a:hover {
+									background-color: #575757;
+								}
+
+								/* Dropdown Menu */
+								.dropdown-menu {
+									display: none;
+									position: absolute;
+									top: 100%;
+									left: 0;
+									background-color: #444;
+									list-style: none;
+									margin: 0;
+									padding: 0;
+									box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+								}
+
+								.dropdown-menu li a {
+									padding: 10px 20px;
+									color: white;
+									text-decoration: none;
+									display: block;
+								}
+
+								.dropdown-menu li a:hover {
+									background-color: #575757;
+								}
+
+								/* Show Dropdown on Hover */
+								.menu-item.dropdown:hover .dropdown-menu {
+									display: block;
+								}
+								</style>
+								
+								<nav class="navbar">
+									<ul class="menu">
+										<li class="menu-item dropdown">
+											<a href="#">User</a>
+											<ul class="dropdown-menu" id="auth">
+												<li><a href="#">Admin Panel</a></li>
+												<li><a href="#">Logout</a></li>
+											</ul>
+										</li>
+									</ul>
+								</nav>
 								@endauth
 							</li>
 						</ul>

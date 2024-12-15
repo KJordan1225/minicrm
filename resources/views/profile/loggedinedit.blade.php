@@ -2,7 +2,7 @@
     <style>
         /* Centering the login form */
         .login-container {
-            max-width: 400px;
+            max-width: 1000px;
             margin: 0 auto;
             margin-top: 8%;
             padding: 2rem;
@@ -19,11 +19,10 @@
 
     <div class="container">
     <div class="login-container bg-white"
-            style="margin-top: 3%; max-width: 500px;
-                    ">
+            style="margin-top: 3%; max-width: 800px; margin-bottom: 5%">
         <div class="d-flex items-center justify-content-center mb-3"
             id="top-loggedinuseredit">
-            <h2>Edit User Profile</h2>
+            <h2>My Profile</h2>
         </div>        
 
         @php 
@@ -39,6 +38,19 @@
 
         <form method="POST" action="{{ route('loggedInUserStoreProfile', ['id'=>$id]) }}" enctype="multipart/form-data" >
             @csrf
+
+            <!-- user photo -->
+            @php 
+                $image_url = asset('storage/images/'.$user->image_path)
+            @endphp
+            <div class="mb-3">
+                <img src="{{ $image_url }}" alt="test image" width="150" height="150" />
+            </div>    
+            <div class="mb-3">
+                <label for="image_path" class="form-label">User Photo (optional)</label>
+                <input type="file" class="form-control" id="image_path" name="image_path" />
+                <x-input-error :messages="$errors->get('image_path')" class="mt-2" />
+            </div>
 
             <!-- user_id -->                            
             <input type="hidden" id="user_id" name="user_id" value="{{ $id }}" />                
@@ -98,19 +110,6 @@
                 </select>
                 <x-input-error :messages="$errors->get('phone_type')" class="mt-2" />
             </div>
-            
-            <!-- user photo -->
-            @php 
-                $image_url = asset('storage/images/'.$user->image_path)
-            @endphp
-            <div class="mb-3">
-                <img src="{{ $image_url }}" alt="test image" width="50" height="50" />
-            </div>    
-            <div class="mb-3">
-                <label for="image_path" class="form-label">User Photo (optional)</label>
-                <input type="file" class="form-control" id="image_path" name="image_path" />
-                <x-input-error :messages="$errors->get('image_path')" class="mt-2" />
-            </div>
 
             <div class="d-flex items-center justify-content-center mt-4">
                 <button type="submit" 
@@ -119,7 +118,7 @@
                     Update Profile 
                 </button>
             </div>
-        </method=>
+    </form>
 
     </div>
     </div>

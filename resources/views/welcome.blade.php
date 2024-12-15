@@ -69,7 +69,8 @@
 				}(document, 'script', 'facebook-jssdk'));
 		</script>
 		<header class="blockHeader wb-header logo_left " fixed="true">
-			<div class="container boxWidget">
+			<div class="container boxWidget"><a href="{{ route('login') }}" pageslug="brosLogin" linktype="Page" class="siteNavLink">
+									
 				<div class="logoWidget logo logoTextSettingClass">
 					<a href="#" title="">
 						<span id="logoTextWrap" style="display:block;">
@@ -90,7 +91,9 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-					</div>     
+					</div>  
+					
+					
 											
 					<div class="navWidget navbar-collapse collapse">
 						<ul class="parent-nav-ul nav navbar-nav navbar-right cl-effect-6">
@@ -127,16 +130,7 @@
 								@endguest
 								
 								@auth
-								<form method="POST" action="{{ route('logout') }}">
-									@csrf
-									<button type="submit">Logout</button>
-									<!-- <a href="route('logout')"
-											onclick="event.preventDefault();
-														this.closest('form').submit();"
-											style="color: #fff;">
-										{{ __('Log Out') }}
-									</a> -->
-								</form>								
+									@include('partials.authPanelDropdownMenu')						
 								@endauth
 							</li>
 						</ul>
@@ -517,7 +511,6 @@
 				</div>
 			</div>
 		</footer>
-
 
         <script src="https://static.sitemantic.com/webbuilder/js/lightbox/src/js/lightbox.js"></script>
 
