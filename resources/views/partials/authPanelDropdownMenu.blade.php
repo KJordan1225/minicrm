@@ -34,8 +34,9 @@
     min-width: 150px;
 }
 
-.dropdown-menu li a {
-    color: white;
+.dropdown-menu1 li a {
+    color: red;
+    font-weight: bold;
     padding: 10px 15px;
     text-decoration: none;
     display: block;
@@ -56,7 +57,7 @@
 .link-button {
     background: none;
     border: none;
-    color: #CFB53B;
+    color: red;
     text-decoration: none;
     cursor: pointer;
     font-family: inherit; /* Match the font to surrounding text */

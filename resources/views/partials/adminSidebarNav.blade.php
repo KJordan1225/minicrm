@@ -6,7 +6,7 @@
 				<div class="sb-sidenav-menu-heading">Core</div>
 				<a class="nav-link" href="{{ route('home') }}">
 					<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-					Admin => Home
+					Home Page
 				</a>
 				<div class="sb-sidenav-menu-heading">Resources</div>
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -66,9 +66,12 @@
 				</a>
 			</div>
 		</div>
+		@php
+        	$user = Auth::user();
+		@endphp
 		<div class="sb-sidenav-footer">
 			<div class="small">Logged in as:</div>
-			Start Bootstrap
+			{{ $user->first_name}}  {{ $user->last_name}}
 		</div>
 	</nav>
 </div>

@@ -63,9 +63,12 @@
 				</a>
 			</div>
 		</div>
+		@php
+        	$user = Auth::user();
+		@endphp
 		<div class="sb-sidenav-footer">
 			<div class="small">Logged in as:</div>
-			Start Bootstrap
+			{{ $user->first_name}}  {{ $user->last_name}}
 		</div>
 	</nav>
 </div>
