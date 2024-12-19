@@ -20,7 +20,7 @@
 
 	<div class="container">
     <div class="login-container bg-white"
-            style="margin-top: 3%; max-width: 500px;
+            style="margin-top: 3%; max-width: 800px; margin-bottom: 3%;
                     ">
 
 

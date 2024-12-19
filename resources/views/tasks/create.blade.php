@@ -20,15 +20,13 @@
 
 	<div class="container">
     <div class="login-container bg-white"
-            style="margin-top: 3%; max-width: 800px;
+            style="margin-top: 3%; max-width: 800px; margin-bottom: 3%;
                     ">
 
 
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create Task') }}
-        </h2>
-    </x-slot>
+    <div class="d-flex items-center justify-content-center mb-3">
+        <h2>Create Task</h2>
+    </div>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

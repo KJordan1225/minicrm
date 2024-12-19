@@ -20,7 +20,7 @@
 
     <div class="container">
     <div class="login-container bg-white"
-            style="margin-top: 3%; max-width: 500px;
+            style="margin-top: 3%; max-width: 800px; margin: 3%;
                     ">
         <div class="d-flex items-center justify-content-center mb-3">
             <h2>Create Document</h2>

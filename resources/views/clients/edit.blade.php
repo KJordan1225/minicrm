@@ -1,4 +1,7 @@
 <x-app-layout>
+
+@include('partials.resourceContainerStyles')
+
     <div class="py-5">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Edit Committee') }}
@@ -90,4 +93,7 @@
             </div>
         </div>
     </div>
+
+	</div>
+	</div>
 </x-app-layout>

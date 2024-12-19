@@ -1,4 +1,7 @@
 <x-app-layout>
+
+@include('partials.resourceContainerStyles')
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Users') }}
@@ -81,6 +84,9 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    </div>
     </div>
 
     <script>
